@@ -22,7 +22,7 @@ namespace WinFormsApp
                 conexion.ConnectionString = "Server=localhost;Database=CATALOGO_P3_DB; integrated security=false; user ID=sa; password=BaseDeDatos#2";
                 comando.CommandType = System.Data.CommandType.Text;
                 //comando.CommandText = "SELECT * FROM ARTICULOS";
-                comando.CommandText = "SELECT Codigo, Nombre, A.Descripcion, M.Descripcion Marca, IdCategoria, Precio\r\nFROM ARTICULOS A, Marcas M\r\nWHERE M.Id = A.IdMarca";
+                comando.CommandText = "SELECT Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, Precio FROM ARTICULOS A, Marcas M, Categorias C WHERE M.Id = A.IdMarca AND C.Id = A.IdCategoria";
 
                 comando.Connection = conexion;
 
@@ -37,7 +37,8 @@ namespace WinFormsApp
                     aux.Descripcion = (string)lector["Descripcion"];
                     aux.Marca = new Marca();
                     aux.Marca.Descripcion = (string)lector["Marca"];
-                    aux.IdCategoria = (int)lector["IdCategoria"];
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.Descripcion = (string)lector["Categoria"];
                     aux.Precio = (decimal)lector["Precio"];
 
                     lista.Add(aux);
