@@ -21,7 +21,9 @@ namespace WinFormsApp
                 //PEDRO
                 conexion.ConnectionString = "Server=localhost;Database=CATALOGO_P3_DB; integrated security=false; user ID=sa; password=BaseDeDatos#2";
                 comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "SELECT * FROM ARTICULOS";
+                //comando.CommandText = "SELECT * FROM ARTICULOS";
+                comando.CommandText = "SELECT Codigo, Nombre, A.Descripcion, M.Descripcion Marca, IdCategoria, Precio\r\nFROM ARTICULOS A, Marcas M\r\nWHERE M.Id = A.IdMarca";
+
                 comando.Connection = conexion;
 
                 conexion.Open();
@@ -33,7 +35,8 @@ namespace WinFormsApp
                     aux.Codigo = (string)lector["Codigo"];
                     aux.Nombre = (string)lector["Nombre"];
                     aux.Descripcion = (string)lector["Descripcion"];
-                    aux.IdMarca = (int)lector["IdMarca"];
+                    aux.Marca = new Marca();
+                    aux.Marca.Descripcion = (string)lector["Marca"];
                     aux.IdCategoria = (int)lector["IdCategoria"];
                     aux.Precio = (decimal)lector["Precio"];
 
