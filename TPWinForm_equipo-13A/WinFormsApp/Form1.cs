@@ -23,7 +23,12 @@ namespace WinFormsApp
         private void Form1_Load(object sender, EventArgs e)
         {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-            dgvArticulos.DataSource = articuloNegocio.listar();
+            dgvArticulos.DataSource = articuloNegocio.listar();       
+        }
+
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

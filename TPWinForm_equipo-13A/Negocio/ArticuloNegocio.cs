@@ -1,10 +1,10 @@
-﻿using Dominio;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using Dominio;
 
 namespace Negocio
 {
@@ -12,32 +12,62 @@ namespace Negocio
     {
         public List<Articulo> listar()
         {
-            List<Articulo> lista = new List<Articulo>();
-            AccesoDatos datos = new AccesoDatos();
+            List<Articulo> listaArticulo = new List<Articulo>();
+            AccesoDatos datosArticulo = new AccesoDatos();
+            AccesoDatos datosImagen = new AccesoDatos();
             
             try
             {
-                datos.setearConsulta("SELECT Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, Precio FROM ARTICULOS A, Marcas M, Categorias C WHERE M.Id = A.IdMarca AND C.Id = A.IdCategoria");
-                datos.ejecutarLectura();
+                datosArticulo.setearConsulta("SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, Precio FROM ARTICULOS A, Marcas M, Categorias C WHERE M.Id = A.IdMarca AND C.Id = A.IdCategoria");
+                datosArticulo.ejecutarLectura();
 
-                while (datos.Lector.Read())
+                while (datosArticulo.Lector.Read())
                 {
-                    Articulo aux = new Articulo();
-                    aux.Codigo = (string)datos.Lector["Codigo"];
-                    aux.Nombre = (string)datos.Lector["Nombre"];
-                    aux.Descripcion = (string)datos.Lector["Descripcion"];
-                    aux.Marca = new Marca();
-                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
-                    aux.Categoria = new Categoria();
-                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
-                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    Articulo auxArticulo = new Articulo();
+                    auxArticulo.Id = (int)datosArticulo.Lector["Id"];
+                    auxArticulo.Codigo = (string)datosArticulo.Lector["Codigo"];
+                    auxArticulo.Nombre = (string)datosArticulo.Lector["Nombre"];
+                    auxArticulo.Descripcion = (string)datosArticulo.Lector["Descripcion"];
+                    auxArticulo.Marca = new Marca();
+                    auxArticulo.Marca.Descripcion = (string)datosArticulo.Lector["Marca"];
+                    auxArticulo.Categoria = new Categoria();
+                    auxArticulo.Categoria.Descripcion = (string)datosArticulo.Lector["Categoria"];
+                    auxArticulo.Precio = (decimal)datosArticulo.Lector["Precio"];
                     
                     // OPCIONAL: (redondea los decimales a 2 nums despues de la coma)
-                    aux.Precio = Math.Round(aux.Precio, 2, MidpointRounding.AwayFromZero);
+                    auxArticulo.Precio = Math.Round(auxArticulo.Precio, 2, MidpointRounding.AwayFromZero);
 
-                    lista.Add(aux);
+                    //Agregar lista de imagenes
+                    List<Imagen> listaImagen = new List<Imagen>();
+                    try
+                    {
+                        datosImagen.setearConsulta("SELECT Id, IdArticulo, ImagenUrl FROM IMAGENES WHERE IdArticulo = " + auxArticulo.Id);
+                        datosImagen.ejecutarLectura();
+
+                        while (datosImagen.Lector.Read())
+                        {
+                            Imagen auxImagen = new Imagen();
+                            auxImagen.Id = (int)datosImagen.Lector["Id"];
+                            auxImagen.IdArticulo = (int)datosImagen.Lector["IdArticulo"];
+                            auxImagen.ImagenUrl = (string)datosImagen.Lector["ImagenUrl"];
+
+                            listaImagen.Add(auxImagen);
+                        }
+
+                        auxArticulo.ListaImagenes = listaImagen;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+                    finally
+                    {
+                        datosImagen.cerrarConexion();
+                    }
+
+                    listaArticulo.Add(auxArticulo);
                 }
-                return lista;
+                return listaArticulo;
             }
             catch (Exception ex)
             {
@@ -45,7 +75,7 @@ namespace Negocio
             }
             finally
             {
-                datos.cerrarConexion();
+                datosArticulo.cerrarConexion();
             }
         }
     }

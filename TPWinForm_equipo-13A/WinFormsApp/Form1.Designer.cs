@@ -32,9 +32,9 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnImagenSiguiente = new System.Windows.Forms.Button();
             this.btnImagenAnterior = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbxImagenArticulo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvArticulos
@@ -45,6 +45,7 @@
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.Size = new System.Drawing.Size(980, 290);
             this.dgvArticulos.TabIndex = 0;
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // btnImagenSiguiente
             // 
@@ -64,13 +65,13 @@
             this.btnImagenAnterior.TabIndex = 2;
             this.btnImagenAnterior.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // pbxImagenArticulo
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(350, 310);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(300, 300);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pbxImagenArticulo.Location = new System.Drawing.Point(350, 310);
+            this.pbxImagenArticulo.Name = "pbxImagenArticulo";
+            this.pbxImagenArticulo.Size = new System.Drawing.Size(300, 300);
+            this.pbxImagenArticulo.TabIndex = 1;
+            this.pbxImagenArticulo.TabStop = false;
             // 
             // Form1
             // 
@@ -79,13 +80,13 @@
             this.ClientSize = new System.Drawing.Size(1001, 621);
             this.Controls.Add(this.btnImagenSiguiente);
             this.Controls.Add(this.btnImagenAnterior);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbxImagenArticulo);
             this.Controls.Add(this.dgvArticulos);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -94,7 +95,7 @@
 
         private System.Windows.Forms.DataGridView dgvArticulos;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbxImagenArticulo;
         private System.Windows.Forms.Button btnImagenAnterior;
         private System.Windows.Forms.Button btnImagenSiguiente;
     }
