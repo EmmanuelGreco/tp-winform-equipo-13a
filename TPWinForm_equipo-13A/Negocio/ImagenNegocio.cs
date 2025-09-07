@@ -10,14 +10,14 @@ namespace Negocio
 {
     public class ImagenNegocio
     {
-        public List<Imagen> listar()
+        public List<Imagen> listarPorIdArticulo(int IdArticulo)
         {
             List<Imagen> lista = new List<Imagen>();
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.setearConsulta("SELECT Id, IdArticulo, ImagenUrl FROM IMAGENES");
+                datos.setearConsulta("SELECT Id, IdArticulo, ImagenUrl FROM IMAGENES WHERE IdArticulo = " + IdArticulo);
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
