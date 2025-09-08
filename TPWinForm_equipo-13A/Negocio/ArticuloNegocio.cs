@@ -39,7 +39,7 @@ namespace Negocio
 
                     //Agregar lista de imagenes
                     List<Imagen> listaImagen = new List<Imagen>();
-                    aux.ListaImagenes = imagenNegocio.listarPorIdArticulo(aux.Id);
+                    aux.ListaImagen = imagenNegocio.listarPorIdArticulo(aux.Id);
                     lista.Add(aux);
                 }
                 return lista;

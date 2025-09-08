@@ -55,6 +55,7 @@
             this.btnImagenSiguiente.Size = new System.Drawing.Size(30, 30);
             this.btnImagenSiguiente.TabIndex = 3;
             this.btnImagenSiguiente.UseVisualStyleBackColor = true;
+            this.btnImagenSiguiente.Click += new System.EventHandler(this.btnImagenSiguiente_Click);
             // 
             // btnImagenAnterior
             // 
@@ -64,12 +65,15 @@
             this.btnImagenAnterior.Size = new System.Drawing.Size(30, 30);
             this.btnImagenAnterior.TabIndex = 2;
             this.btnImagenAnterior.UseVisualStyleBackColor = true;
+            this.btnImagenAnterior.Visible = false;
+            this.btnImagenAnterior.Click += new System.EventHandler(this.btnImagenAnterior_Click);
             // 
             // pbxImagenArticulo
             // 
             this.pbxImagenArticulo.Location = new System.Drawing.Point(350, 310);
             this.pbxImagenArticulo.Name = "pbxImagenArticulo";
             this.pbxImagenArticulo.Size = new System.Drawing.Size(300, 300);
+            this.pbxImagenArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxImagenArticulo.TabIndex = 1;
             this.pbxImagenArticulo.TabStop = false;
             // 

@@ -15,6 +15,9 @@ namespace WinFormsApp
 {
     public partial class Form1 : Form
     {
+        private List<Articulo> listaArticulos;
+        private int indiceImagen = 0;
+        Articulo seleccionado;
         public Form1()
         {
             InitializeComponent();
@@ -23,12 +26,75 @@ namespace WinFormsApp
         private void Form1_Load(object sender, EventArgs e)
         {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-            dgvArticulos.DataSource = articuloNegocio.listar();       
+            listaArticulos = articuloNegocio.listar();
+            dgvArticulos.DataSource = listaArticulos;
+
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            
+            if (seleccionado.ListaImagen.Count < 2) btnImagenSiguiente.Visible = false;
+            else btnImagenSiguiente.Visible = true;
+            try
+            {
+                cargarImagen(listaArticulos[0].ListaImagen[0].ImagenUrl);
+            }
+            catch (Exception)
+            {
+                pbxImagenArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+            }
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
+            indiceImagen = 0;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            if (seleccionado.ListaImagen.Count < 2)
+            {
+                btnImagenAnterior.Visible = false;
+                btnImagenSiguiente.Visible = false;
+            }
+            else
+            {
+                btnImagenAnterior.Visible = false;
+                btnImagenSiguiente.Visible = true;
+            }
 
+            //if (seleccionado.ListaImagen.Count < )
+            try
+            {
+                cargarImagen(seleccionado.ListaImagen[indiceImagen].ImagenUrl);
+            }
+            catch (Exception)
+            {
+                pbxImagenArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+            }
+        }
+
+        private void btnImagenAnterior_Click(object sender, EventArgs e)
+        {
+            indiceImagen -= 1;
+            if (indiceImagen == 0) btnImagenAnterior.Visible = false;
+            btnImagenSiguiente.Visible = true;
+            cargarImagen(seleccionado.ListaImagen[indiceImagen].ImagenUrl);
+            
+        }
+
+        private void btnImagenSiguiente_Click(object sender, EventArgs e)
+        {
+            indiceImagen += 1;
+            if (indiceImagen == seleccionado.ListaImagen.Count - 1) btnImagenSiguiente.Visible = false;
+            btnImagenAnterior.Visible = true;
+            cargarImagen(seleccionado.ListaImagen[indiceImagen].ImagenUrl);
+        }
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxImagenArticulo.Load(imagen);
+            }
+            catch (Exception)
+            {
+                pbxImagenArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+            }
         }
     }
 }
