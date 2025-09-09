@@ -88,6 +88,7 @@ namespace WinFormsApp
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+
             try
             {
                 cboMarca.DataSource = marcaNegocio.listar();

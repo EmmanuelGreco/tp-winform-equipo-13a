@@ -101,6 +101,7 @@
             this.articuloEliminarTSMenuItem.Name = "articuloEliminarTSMenuItem";
             this.articuloEliminarTSMenuItem.Size = new System.Drawing.Size(180, 22);
             this.articuloEliminarTSMenuItem.Text = "Eliminar";
+            this.articuloEliminarTSMenuItem.Click += new System.EventHandler(this.articuloEliminarTSMenuItem_Click);
             // 
             // marcasToolStripMenuItem
             // 
