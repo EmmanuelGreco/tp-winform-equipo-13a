@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using Dominio;
 
 namespace Negocio
 {
@@ -52,6 +52,26 @@ namespace Negocio
             {
                 datos.cerrarConexion();
             }
+        }
+
+        public void agregar(Articulo nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio) VALUES ('" + nuevo.Codigo + "', '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "', " + nuevo.Precio.ToString(CultureInfo.InvariantCulture) + ")");
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+
         }
     }
 }

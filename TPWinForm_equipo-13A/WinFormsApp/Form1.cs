@@ -96,5 +96,11 @@ namespace WinFormsApp
                 pbxImagenArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
             }
         }
+
+        private void articuloAgregarTSMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltaArticulo alta = new frmAltaArticulo();
+            alta.ShowDialog();
+        }
     }
 }
