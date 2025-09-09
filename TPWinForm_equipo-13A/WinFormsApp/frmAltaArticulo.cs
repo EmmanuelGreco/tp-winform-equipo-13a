@@ -37,7 +37,16 @@ namespace WinFormsApp
                 articulo.Descripcion = txtDescripcion.Text;
                 articulo.Marca = (Marca)cboMarca.SelectedItem;
                 articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
-                articulo.Precio = decimal.Parse(txtPrecio.Text, CultureInfo.InvariantCulture);
+
+                // Reemplazo las ',' por '.' para tomar los decimales y minimizar errores de usuario.
+                string ingresoUsuario = txtPrecio.Text.Trim();
+                ingresoUsuario = ingresoUsuario.Replace(',', '.');
+                decimal precio;
+                decimal.TryParse(ingresoUsuario, NumberStyles.Number, CultureInfo.InvariantCulture, out precio);
+                articulo.Precio = precio;
+                
+                // Esta opcion solo tomaba correctamente '.'
+                //articulo.Precio = decimal.Parse(txtPrecio.Text, CultureInfo.InvariantCulture);
 
                 negocio.agregar(articulo);
                 MessageBox.Show("Agregado Exitosamente!");

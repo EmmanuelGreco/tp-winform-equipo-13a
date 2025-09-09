@@ -30,9 +30,6 @@
         {
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnImagenSiguiente = new System.Windows.Forms.Button();
-            this.btnImagenAnterior = new System.Windows.Forms.Button();
-            this.pbxImagenArticulo = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.artículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,9 +38,12 @@
             this.articuloAgregarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.articuloModificarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.articuloEliminarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnImagenSiguiente = new System.Windows.Forms.Button();
+            this.btnImagenAnterior = new System.Windows.Forms.Button();
+            this.pbxImagenArticulo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvArticulos
@@ -55,36 +55,6 @@
             this.dgvArticulos.Size = new System.Drawing.Size(980, 290);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
-            // 
-            // btnImagenSiguiente
-            // 
-            this.btnImagenSiguiente.Image = global::WinFormsApp.Properties.Resources.flechaDer;
-            this.btnImagenSiguiente.Location = new System.Drawing.Point(620, 462);
-            this.btnImagenSiguiente.Name = "btnImagenSiguiente";
-            this.btnImagenSiguiente.Size = new System.Drawing.Size(30, 30);
-            this.btnImagenSiguiente.TabIndex = 3;
-            this.btnImagenSiguiente.UseVisualStyleBackColor = true;
-            this.btnImagenSiguiente.Click += new System.EventHandler(this.btnImagenSiguiente_Click);
-            // 
-            // btnImagenAnterior
-            // 
-            this.btnImagenAnterior.Image = global::WinFormsApp.Properties.Resources.flechaIzq;
-            this.btnImagenAnterior.Location = new System.Drawing.Point(350, 462);
-            this.btnImagenAnterior.Name = "btnImagenAnterior";
-            this.btnImagenAnterior.Size = new System.Drawing.Size(30, 30);
-            this.btnImagenAnterior.TabIndex = 2;
-            this.btnImagenAnterior.UseVisualStyleBackColor = true;
-            this.btnImagenAnterior.Visible = false;
-            this.btnImagenAnterior.Click += new System.EventHandler(this.btnImagenAnterior_Click);
-            // 
-            // pbxImagenArticulo
-            // 
-            this.pbxImagenArticulo.Location = new System.Drawing.Point(350, 327);
-            this.pbxImagenArticulo.Name = "pbxImagenArticulo";
-            this.pbxImagenArticulo.Size = new System.Drawing.Size(300, 300);
-            this.pbxImagenArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxImagenArticulo.TabIndex = 1;
-            this.pbxImagenArticulo.TabStop = false;
             // 
             // menuStrip1
             // 
@@ -146,6 +116,36 @@
             this.articuloEliminarTSMenuItem.Size = new System.Drawing.Size(180, 22);
             this.articuloEliminarTSMenuItem.Text = "Eliminar";
             // 
+            // btnImagenSiguiente
+            // 
+            this.btnImagenSiguiente.Image = global::WinFormsApp.Properties.Resources.flechaDer;
+            this.btnImagenSiguiente.Location = new System.Drawing.Point(620, 462);
+            this.btnImagenSiguiente.Name = "btnImagenSiguiente";
+            this.btnImagenSiguiente.Size = new System.Drawing.Size(30, 30);
+            this.btnImagenSiguiente.TabIndex = 3;
+            this.btnImagenSiguiente.UseVisualStyleBackColor = true;
+            this.btnImagenSiguiente.Click += new System.EventHandler(this.btnImagenSiguiente_Click);
+            // 
+            // btnImagenAnterior
+            // 
+            this.btnImagenAnterior.Image = global::WinFormsApp.Properties.Resources.flechaIzq;
+            this.btnImagenAnterior.Location = new System.Drawing.Point(350, 462);
+            this.btnImagenAnterior.Name = "btnImagenAnterior";
+            this.btnImagenAnterior.Size = new System.Drawing.Size(30, 30);
+            this.btnImagenAnterior.TabIndex = 2;
+            this.btnImagenAnterior.UseVisualStyleBackColor = true;
+            this.btnImagenAnterior.Visible = false;
+            this.btnImagenAnterior.Click += new System.EventHandler(this.btnImagenAnterior_Click);
+            // 
+            // pbxImagenArticulo
+            // 
+            this.pbxImagenArticulo.Location = new System.Drawing.Point(350, 327);
+            this.pbxImagenArticulo.Name = "pbxImagenArticulo";
+            this.pbxImagenArticulo.Size = new System.Drawing.Size(300, 300);
+            this.pbxImagenArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxImagenArticulo.TabIndex = 1;
+            this.pbxImagenArticulo.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,12 +158,13 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
