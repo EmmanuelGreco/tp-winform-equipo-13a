@@ -30,3 +30,16 @@ UPDATE IMAGENES SET ImagenUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn
 -- IMAGENES EXTRA PARA EL BRAVIA!! PARA PODER PROBAR LAS FLECHAS 
 -- INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (4, 'https://http2.mlstatic.com/D_706540-MLA89648917620_082025-C.jpg')
 -- INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (4, 'https://www.leconcepts.com/wp-content/uploads/2023/06/Sy_X75WL_2.jpg')
+
+
+-- QUERY UTILIZADA EN ALTA ARTICULO SIMPLE:
+INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, Precio) VALUES ('', '', '', 1)
+DELETE FROM ARTICULOS WHERE Id = 12
+
+UPDATE ARTICULOS SET IdMarca = 1, IdCategoria = 1 WHERE Id = 13
+UPDATE ARTICULOS SET Nombre = 'afafaf' WHERE Id = 13
+
+SELECT * FROM ARTICULOS
+
+-- QUERY UTILIZADA EN ALTA MARCA NEGOCIO:
+SELECT Id, Descripcion FROM MARCAS
