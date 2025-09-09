@@ -16,18 +16,28 @@ namespace WinFormsApp
 {
     public partial class frmAltaArticulo : Form
     {
+        private Articulo articulo = null;
         public frmAltaArticulo()
         {
             InitializeComponent();
         }
 
+        public frmAltaArticulo(Articulo articulo)
+        {
+            InitializeComponent();
+            this.articulo = articulo;
+            Text = "Modificar Artículo";
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            Articulo articulo = new Articulo();
             ArticuloNegocio negocio = new ArticuloNegocio();
 
             try
             {
+                if (articulo == null)
+                    articulo = new Articulo();
+
                 articulo.Codigo = txtCodigo.Text;
                 articulo.Nombre = txtNombre.Text;
                 articulo.Descripcion = txtDescripcion.Text;
@@ -49,8 +59,17 @@ namespace WinFormsApp
                 // Esta opcion solo tomaba correctamente '.'
                 //articulo.Precio = decimal.Parse(txtPrecio.Text, CultureInfo.InvariantCulture);
 
-                negocio.agregar(articulo);
-                MessageBox.Show("Agregado Exitosamente!");
+                if (articulo.Id != 0)
+                {
+                    negocio.modificar(articulo);
+                    MessageBox.Show("Modificado Exitosamente!");
+                }
+                else
+                {
+                    negocio.agregar(articulo);
+                    MessageBox.Show("Agregado Exitosamente!");
+                }
+
                 Close();
             }
             catch (Exception ex)
@@ -67,12 +86,35 @@ namespace WinFormsApp
 
         private void frmAltaArticulo_Load(object sender, EventArgs e)
         {
-            MarcaNegocio elementoNegocio = new MarcaNegocio();
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             try
             {
-                cboMarca.DataSource = elementoNegocio.listar();
+                cboMarca.DataSource = marcaNegocio.listar();
+                cboMarca.ValueMember = "Id";
+                cboMarca.DisplayMember = "Descripcion";
                 cboCategoria.DataSource = categoriaNegocio.listar();
+                cboCategoria.ValueMember = "Id";
+                cboCategoria.DisplayMember = "Descripcion";
+
+                if (articulo != null)
+                {
+                    txtCodigo.Text = articulo.Codigo;
+                    txtNombre.Text = articulo.Nombre;
+                    txtDescripcion.Text = articulo.Descripcion;
+
+                    if (articulo.ListaImagen != null && articulo.ListaImagen.Count > 0)
+                    {
+                        txtUrlImagen.Text = articulo.ListaImagen[0].ImagenUrl;
+                        cargarImagen(articulo.ListaImagen[0].ImagenUrl);
+                    }
+
+                    cboMarca.SelectedValue= articulo.Marca.Id;
+                    cboCategoria.SelectedValue = articulo.Categoria.Id;
+
+                    txtPrecio.Text = articulo.Precio.ToString("0.00");
+                }
+
             }
             catch (Exception ex)
             {

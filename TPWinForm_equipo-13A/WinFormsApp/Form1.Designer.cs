@@ -32,12 +32,12 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.artículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.marcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.categoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.articuloAgregarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.articuloModificarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.articuloEliminarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnImagenSiguiente = new System.Windows.Forms.Button();
             this.btnImagenAnterior = new System.Windows.Forms.Button();
             this.pbxImagenArticulo = new System.Windows.Forms.PictureBox();
@@ -82,6 +82,26 @@
             this.artículosToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.artículosToolStripMenuItem.Text = "Artículos";
             // 
+            // articuloAgregarTSMenuItem
+            // 
+            this.articuloAgregarTSMenuItem.Name = "articuloAgregarTSMenuItem";
+            this.articuloAgregarTSMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.articuloAgregarTSMenuItem.Text = "Agregar";
+            this.articuloAgregarTSMenuItem.Click += new System.EventHandler(this.articuloAgregarTSMenuItem_Click);
+            // 
+            // articuloModificarTSMenuItem
+            // 
+            this.articuloModificarTSMenuItem.Name = "articuloModificarTSMenuItem";
+            this.articuloModificarTSMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.articuloModificarTSMenuItem.Text = "Modificar";
+            this.articuloModificarTSMenuItem.Click += new System.EventHandler(this.articuloModificarTSMenuItem_Click);
+            // 
+            // articuloEliminarTSMenuItem
+            // 
+            this.articuloEliminarTSMenuItem.Name = "articuloEliminarTSMenuItem";
+            this.articuloEliminarTSMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.articuloEliminarTSMenuItem.Text = "Eliminar";
+            // 
             // marcasToolStripMenuItem
             // 
             this.marcasToolStripMenuItem.Name = "marcasToolStripMenuItem";
@@ -99,25 +119,6 @@
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
             this.buscarToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.buscarToolStripMenuItem.Text = "Buscar";
-            // 
-            // articuloAgregarTSMenuItem
-            // 
-            this.articuloAgregarTSMenuItem.Name = "articuloAgregarTSMenuItem";
-            this.articuloAgregarTSMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.articuloAgregarTSMenuItem.Text = "Agregar";
-            this.articuloAgregarTSMenuItem.Click += new System.EventHandler(this.articuloAgregarTSMenuItem_Click);
-            // 
-            // articuloModificarTSMenuItem
-            // 
-            this.articuloModificarTSMenuItem.Name = "articuloModificarTSMenuItem";
-            this.articuloModificarTSMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.articuloModificarTSMenuItem.Text = "Modificar";
-            // 
-            // articuloEliminarTSMenuItem
-            // 
-            this.articuloEliminarTSMenuItem.Name = "articuloEliminarTSMenuItem";
-            this.articuloEliminarTSMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.articuloEliminarTSMenuItem.Text = "Eliminar";
             // 
             // btnImagenSiguiente
             // 

@@ -40,6 +40,7 @@ namespace WinFormsApp
             else btnImagenSiguiente.Visible = true;
             try
             {
+                dgvArticulos.Columns["Id"].Visible = false;
                 cargarImagen(listaArticulos[0].ListaImagen[0].ImagenUrl);
             }
             catch (Exception)
@@ -106,6 +107,16 @@ namespace WinFormsApp
         {
             frmAltaArticulo alta = new frmAltaArticulo();
             alta.ShowDialog();
+            cargar();
+        }
+
+        private void articuloModificarTSMenuItem_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
+            modificar.ShowDialog();
             cargar();
         }
     }
