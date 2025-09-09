@@ -16,8 +16,8 @@ namespace WinFormsApp
     public partial class Form1 : Form
     {
         private List<Articulo> listaArticulos;
-        private int indiceImagen = 0;
         Articulo seleccionado;
+        private int indiceImagen = 0;
         public Form1()
         {
             InitializeComponent();
@@ -25,12 +25,17 @@ namespace WinFormsApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            cargar();
+        }
+
+        private void cargar()
+        {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             listaArticulos = articuloNegocio.listar();
             dgvArticulos.DataSource = listaArticulos;
 
             seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            
+
             if (seleccionado.ListaImagen.Count < 2) btnImagenSiguiente.Visible = false;
             else btnImagenSiguiente.Visible = true;
             try
@@ -101,6 +106,7 @@ namespace WinFormsApp
         {
             frmAltaArticulo alta = new frmAltaArticulo();
             alta.ShowDialog();
+            cargar();
         }
     }
 }

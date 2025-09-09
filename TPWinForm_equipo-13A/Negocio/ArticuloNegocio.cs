@@ -57,6 +57,7 @@ namespace Negocio
         public void agregar(Articulo nuevo)
         {
             AccesoDatos datos = new AccesoDatos();
+            AccesoDatos datosImagen = new AccesoDatos();
 
             try
             {
@@ -65,6 +66,29 @@ namespace Negocio
                 datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
                 datos.setearParametro("@precio", nuevo.Precio);
                 datos.ejecutarAccion();
+                datos.cerrarConexion();
+
+                int idArticulo = 0;
+                datos.setearConsulta("SELECT Id FROM ARTICULOS WHERE Codigo = '" + nuevo.Codigo + "'");
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    idArticulo = (int)datos.Lector["Id"];
+                }
+                datos.cerrarConexion();
+
+                if (nuevo.ListaImagen != null && nuevo.ListaImagen.Count > 0)
+                {
+                    foreach (var imagen in nuevo.ListaImagen)
+                    {
+                        datosImagen.setearConsulta("INSERT INTO Imagenes (IdArticulo, ImagenUrl) VALUES (@idArticulo, @imagenUrl)");
+                        datosImagen.setearParametro("@idArticulo", idArticulo);
+                        datosImagen.setearParametro("@imagenUrl", imagen.ImagenUrl);
+                        datosImagen.ejecutarAccion();
+                        datosImagen.cerrarConexion();
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -73,8 +97,8 @@ namespace Negocio
             finally
             {
                 datos.cerrarConexion();
+                datosImagen.cerrarConexion();
             }
-
         }
     }
 }
