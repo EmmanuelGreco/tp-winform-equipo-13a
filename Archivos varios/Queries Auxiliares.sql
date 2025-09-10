@@ -9,11 +9,6 @@ SELECT * FROM MARCAS
 SELECT * FROM CATEGORIAS
 SELECT * FROM IMAGENES
 
--- QUERY UTILIZADA EN ARTICULO NEGOCIO: 
-SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, Precio FROM ARTICULOS A, Marcas M, Categorias C WHERE M.Id = A.IdMarca AND C.Id = A.IdCategoria
-
--- QUERY UTILIZADA EN IMAGEN NEGOCIO;
-SELECT Id, IdArticulo, ImagenUrl FROM IMAGENES 
 
 -- ARREGLA EL ERROR DE IDs EN EL MOTO G7
 UPDATE ARTICULOS SET IdMarca = 5, IdCategoria = 1 WHERE Id = 2
@@ -27,16 +22,30 @@ UPDATE ARTICULOS SET IdMarca = 5, IdCategoria = 1 WHERE Id = 2
 		-- Moto G7
 UPDATE IMAGENES SET ImagenUrl = 'https://i.blogs.es/7dae03/moto-g7-power-6/650_1200.jpg' WHERE Id = 2
 		-- PS4
-UPDATE IMAGENES SET ImagenUrl = 'https://i5.walmartimages.com/seo/Sony-PlayStation-4-Slim-500GB-Gaming-Console-Black-CUH-2115A_230f7166-6198-47e2-9d7c-6765dd55eaa0_1.1814fe6b8a1755f07a4d7d4aaf92c4b7.jpeg' WHERE Id = 4
+UPDATE IMAGENES SET ImagenUrl = 'https://http2.mlstatic.com/D_NQ_926584-MLA71282395677_082023-OO.jpg' WHERE Id = 4
 		-- Bravia 55
-UPDATE IMAGENES SET ImagenUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ZPEcRtqGLaSmD2u4_PYRd4EjsH4HwnsmQA&s' WHERE Id = 5
+UPDATE IMAGENES SET ImagenUrl = 'https://www.radioshack.cr/media/catalog/product/9/0/9008010048tv.jpg' WHERE Id = 5
 		-- Apple TV
 UPDATE IMAGENES SET ImagenUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMRvBKDbRwTu_HB5TtOunIFsQ_t0li7CkndA&s' WHERE Id = 6
 
 
--- IMAGENES EXTRA PARA EL BRAVIA!! PARA PODER PROBAR LAS FLECHAS 
--- INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (4, 'https://http2.mlstatic.com/D_706540-MLA89648917620_082025-C.jpg')
--- INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (4, 'https://www.sony.com.ar/image/ce2f5cde0c1c53e140f1d4a511c2f406?fmt=jpeg&wid=960&qlt=43')
+-- IMAGENES EXTRA PARA EL BRAVIA!! PARA PODER PROBAR LAS FLECHAS
+INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (4, 'https://buketomnisportpweb.s3.us-east-2.amazonaws.com/seo/gzg3H8cvix8kft0fxq8jMho7h11Ub2Vc5opACcOy.jpeg')
+INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (4, 'https://sony.scene7.com/is/image/sonyglobalsolutions/TVFY24_UE_1_FrontWithStand_M?$productIntroPlatemobile$&fmt=png-alpha')
+INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (4, 'https://sony.scene7.com/is/image/sonyglobalsolutions/TVFY24_UE_2_CW_M?$productIntroPlatemobile$&fmt=png-alpha')
+INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (4, 'https://sony.scene7.com/is/image/sonyglobalsolutions/TVFY24_UE_3_CCW_M?$productIntroPlatemobile$&fmt=png-alpha')
+INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (4, 'https://sony.scene7.com/is/image/sonyglobalsolutions/TVFY24_UE_4_Angled_Back_M?$productIntroPlatemobile$&fmt=png-alpha')
+INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (4, 'https://sony.scene7.com/is/image/sonyglobalsolutions/TVFY24_UE_5_Bezel_M?$productIntroPlatemobile$&fmt=png-alpha')
+INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (4, 'https://sony.scene7.com/is/image/sonyglobalsolutions/TVFY24_UE_6_Stand_M?$productIntroPlatemobile$&fmt=png-alpha')
+INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (4, 'https://sony.scene7.com/is/image/sonyglobalsolutions/TVFY24_UE_0_insitu_M?$productIntroPlatemobile$&fmt=png-alpha')
+
+
+-- QUERY UTILIZADA EN ARTICULO NEGOCIO: 
+SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, Precio FROM ARTICULOS A, Marcas M, Categorias C WHERE M.Id = A.IdMarca AND C.Id = A.IdCategoria
+
+
+-- QUERY UTILIZADA EN IMAGEN NEGOCIO;
+SELECT Id, IdArticulo, ImagenUrl FROM IMAGENES 
 
 
 -- QUERY UTILIZADA EN ALTA ARTICULO SIMPLE:
@@ -95,7 +104,7 @@ SELECT * FROM IMAGENES
 -- ELIMINO Y REINICIO IDS DE PRUEBAS
 DELETE FROM ARTICULOS
 DBCC CHECKIDENT (ARTICULOS, RESEED, 0)
-DELETE FROM IMAGENES
+DELETE FROM IMAGENES WHERE IdArticulo = 4
 DBCC CHECKIDENT (IMAGENES, RESEED, 0)
 
 
