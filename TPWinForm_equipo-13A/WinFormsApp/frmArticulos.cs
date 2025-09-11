@@ -13,12 +13,12 @@ using Negocio;
 
 namespace WinFormsApp
 {
-    public partial class Form1 : Form
+    public partial class frmArticulos : Form
     {
         private List<Articulo> listaArticulo;
         Articulo seleccionado;
         private int indiceImagen = 0;
-        public Form1()
+        public frmArticulos()
         {
             InitializeComponent();
         }
@@ -151,6 +151,18 @@ namespace WinFormsApp
         }
 
         private void btnFiltro_Click(object sender, EventArgs e)
+        {
+            // Si bien el método txtFiltro_TextChanged hace lo mismo, este botón
+            // queda para el Filtro Avanzado contra DB
+            busquedaFiltro();
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+            busquedaFiltro();
+        }
+
+        private void busquedaFiltro()
         {
             List<Articulo> listaFiltrada;
             string filtro = txtFiltro.Text;
