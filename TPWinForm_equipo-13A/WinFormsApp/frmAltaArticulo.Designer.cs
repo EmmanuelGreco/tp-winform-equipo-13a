@@ -47,6 +47,8 @@
             this.pbxImagenArticulo = new System.Windows.Forms.PictureBox();
             this.btnImagenSiguiente = new System.Windows.Forms.Button();
             this.btnImagenAnterior = new System.Windows.Forms.Button();
+            this.btnAgregarImagen = new System.Windows.Forms.Button();
+            this.btnEliminarImagen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -217,6 +219,7 @@
             this.btnImagenSiguiente.Size = new System.Drawing.Size(25, 25);
             this.btnImagenSiguiente.TabIndex = 14;
             this.btnImagenSiguiente.UseVisualStyleBackColor = true;
+            this.btnImagenSiguiente.Click += new System.EventHandler(this.btnImagenSiguiente_Click);
             // 
             // btnImagenAnterior
             // 
@@ -227,12 +230,41 @@
             this.btnImagenAnterior.TabIndex = 15;
             this.btnImagenAnterior.UseVisualStyleBackColor = true;
             this.btnImagenAnterior.Visible = false;
+            this.btnImagenAnterior.Click += new System.EventHandler(this.btnImagenAnterior_Click);
+            // 
+            // btnAgregarImagen
+            // 
+            this.btnAgregarImagen.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnAgregarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarImagen.Location = new System.Drawing.Point(383, 243);
+            this.btnAgregarImagen.Name = "btnAgregarImagen";
+            this.btnAgregarImagen.Size = new System.Drawing.Size(200, 30);
+            this.btnAgregarImagen.TabIndex = 16;
+            this.btnAgregarImagen.Text = "Confirmar/Agregar Imagen";
+            this.btnAgregarImagen.UseVisualStyleBackColor = false;
+            this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
+            // 
+            // btnEliminarImagen
+            // 
+            this.btnEliminarImagen.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnEliminarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminarImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarImagen.Location = new System.Drawing.Point(383, 279);
+            this.btnEliminarImagen.Name = "btnEliminarImagen";
+            this.btnEliminarImagen.Size = new System.Drawing.Size(200, 30);
+            this.btnEliminarImagen.TabIndex = 17;
+            this.btnEliminarImagen.Text = "Eliminar Imagen";
+            this.btnEliminarImagen.UseVisualStyleBackColor = false;
+            this.btnEliminarImagen.Click += new System.EventHandler(this.btnEliminarImagen_Click);
             // 
             // frmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(635, 335);
+            this.Controls.Add(this.btnEliminarImagen);
+            this.Controls.Add(this.btnAgregarImagen);
             this.Controls.Add(this.btnImagenAnterior);
             this.Controls.Add(this.btnImagenSiguiente);
             this.Controls.Add(this.pbxImagenArticulo);
@@ -283,5 +315,7 @@
         private System.Windows.Forms.PictureBox pbxImagenArticulo;
         private System.Windows.Forms.Button btnImagenSiguiente;
         private System.Windows.Forms.Button btnImagenAnterior;
+        private System.Windows.Forms.Button btnAgregarImagen;
+        private System.Windows.Forms.Button btnEliminarImagen;
     }
 }

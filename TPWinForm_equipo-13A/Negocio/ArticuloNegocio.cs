@@ -18,7 +18,10 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, A.IdMarca, A.IdCategoria, Precio FROM ARTICULOS A, MARCAS M, CATEGORIAS C WHERE M.Id = A.IdMarca AND C.Id = A.IdCategoria");
+                datos.setearConsulta("SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, " +
+                                     "C.Descripcion Categoria, A.IdMarca, A.IdCategoria, " +
+                                     "Precio FROM ARTICULOS A, MARCAS M, CATEGORIAS C " +
+                                     "WHERE M.Id = A.IdMarca AND C.Id = A.IdCategoria");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -66,7 +69,10 @@ namespace Negocio
 
             try
             {
-                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES ('" + nuevo.Codigo + "', '" + nuevo.Nombre + "', '" + nuevo.Descripcion + "', @idMarca, @idCategoria, @precio)");
+                datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, " +
+                                     "IdMarca, IdCategoria, Precio) " +
+                                     "VALUES ('" + nuevo.Codigo + "', '" + nuevo.Nombre + "', '" 
+                                     + nuevo.Descripcion + "', @idMarca, @idCategoria, @precio)");
                 datos.setearParametro("@idMarca", nuevo.Marca.Id);
                 datos.setearParametro("@idCategoria", nuevo.Categoria.Id);
                 datos.setearParametro("@precio", nuevo.Precio);
@@ -87,7 +93,9 @@ namespace Negocio
                 {
                     foreach (var imagen in nuevo.ListaImagen)
                     {
-                        datosImagen.setearConsulta("INSERT INTO Imagenes (IdArticulo, ImagenUrl) VALUES (@idArticulo, @imagenUrl)");
+                        datosImagen = new AccesoDatos();
+                        datosImagen.setearConsulta("INSERT INTO Imagenes (IdArticulo, ImagenUrl) " +
+                                                   "VALUES (@idArticulo, @imagenUrl)");
                         datosImagen.setearParametro("@idArticulo", idArticulo);
                         datosImagen.setearParametro("@imagenUrl", imagen.ImagenUrl);
                         datosImagen.ejecutarAccion();
@@ -110,9 +118,12 @@ namespace Negocio
         {
             AccesoDatos datos = new AccesoDatos();
             AccesoDatos datosImagen = new AccesoDatos();
+
             try
             {
-                datos.setearConsulta("UPDATE ARTICULOS SET Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, IdMarca = @idmarca, IdCategoria = @idcategoria, Precio = @precio WHERE Id = @id");
+                datos.setearConsulta("UPDATE ARTICULOS SET Codigo = @codigo, Nombre = @nombre, " +
+                                     "Descripcion = @descripcion, IdMarca = @idmarca, " +
+                                     "IdCategoria = @idcategoria, Precio = @precio WHERE Id = @id");
                 datos.setearParametro("@codigo", existente.Codigo);
                 datos.setearParametro("@nombre", existente.Nombre);
                 datos.setearParametro("@descripcion", existente.Descripcion);
@@ -123,13 +134,62 @@ namespace Negocio
                 datos.ejecutarAccion();
                 datos.cerrarConexion();
 
+                List<int> idsActuales = new List<int>();
+                datosImagen = new AccesoDatos();
+
+                datosImagen.setearConsulta("SELECT Id FROM IMAGENES WHERE IdArticulo = @idArticulo");
+                datosImagen.setearParametro("@idArticulo", existente.Id);
+                datosImagen.ejecutarLectura();
+
+                while (datosImagen.Lector.Read())
+                {
+                    idsActuales.Add((int)datosImagen.Lector["Id"]);
+                }
+                datosImagen.cerrarConexion();
+
+                // Armo lista de los IDS que se quieren conservar
+                List<int> idsConservados = new List<int>();
+                foreach (var imagen in existente.ListaImagen)
+                {
+                    if (imagen.Id != 0)
+                        idsConservados.Add(imagen.Id);
+                }
+
+                // Elimino las que ya no se usan
+                foreach (int idBD in idsActuales)
+                {
+                    if (!idsConservados.Contains(idBD))
+                    {
+                        datosImagen = new AccesoDatos();
+                        datosImagen.setearConsulta("DELETE FROM IMAGENES WHERE Id = @idImagen");
+                        datosImagen.setearParametro("@idImagen", idBD);
+                        datosImagen.ejecutarAccion();
+                        datosImagen.cerrarConexion();
+                    }
+                }
+
+                // INSERT / UPDATE de las imagenes restasten
                 if (existente.ListaImagen != null && existente.ListaImagen.Count > 0)
                 {
                     foreach (var imagen in existente.ListaImagen)
                     {
-                        datosImagen.setearConsulta("UPDATE IMAGENES SET ImagenUrl = @imagenUrl WHERE IdArticulo = @idArticulo");
-                        datosImagen.setearParametro("@idArticulo", existente.Id);
-                        datosImagen.setearParametro("@imagenUrl", imagen.ImagenUrl);
+                        datosImagen = new AccesoDatos();
+
+                        if (imagen.Id != 0)
+                        {
+                            // UPDATE imagen existente
+                            datosImagen.setearConsulta("UPDATE IMAGENES SET ImagenUrl = @imagenUrl WHERE Id = @idImagen");
+                            datosImagen.setearParametro("@idImagen", imagen.Id);
+                            datosImagen.setearParametro("@imagenUrl", imagen.ImagenUrl);
+                        }
+                        else
+                        {
+                            // INSERT nueva imagen
+                            datosImagen.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@idArticulo, @imagenUrl)");
+                            datosImagen.setearParametro("@idArticulo", existente.Id);
+                            datosImagen.setearParametro("@imagenUrl", imagen.ImagenUrl);
+                        }
+
                         datosImagen.ejecutarAccion();
                         datosImagen.cerrarConexion();
                     }
@@ -149,12 +209,18 @@ namespace Negocio
         public void eliminar(int id)
         {
             AccesoDatos datos = new AccesoDatos();
+            AccesoDatos datosImagen = new AccesoDatos();
             try
             {
                 datos.setearConsulta("DELETE FROM ARTICULOS WHERE Id = @id");
                 datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
                 datos.cerrarConexion();
+
+                datosImagen.setearConsulta("DELETE FROM IMAGENES WHERE IdArticulo = @id");
+                datosImagen.setearParametro("@id", id);
+                datosImagen.ejecutarAccion();
+                datosImagen.cerrarConexion();
             }
             catch (Exception ex)
             {
@@ -163,6 +229,7 @@ namespace Negocio
             finally
             {
                 datos.cerrarConexion();
+                datosImagen.cerrarConexion();
             }
         }
     }

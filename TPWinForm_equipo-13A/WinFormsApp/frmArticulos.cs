@@ -18,6 +18,7 @@ namespace WinFormsApp
         private List<Articulo> listaArticulo;
         Articulo seleccionado;
         private int indiceImagen = 0;
+
         public frmArticulos()
         {
             InitializeComponent();
@@ -61,7 +62,7 @@ namespace WinFormsApp
             {
                 indiceImagen = 0;
                 seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-                if (seleccionado.ListaImagen.Count < 2)
+                if (seleccionado.ListaImagen.Count <= 1)
                 {
                     btnImagenAnterior.Visible = false;
                     btnImagenSiguiente.Visible = false;
@@ -100,6 +101,7 @@ namespace WinFormsApp
             btnImagenAnterior.Visible = true;
             cargarImagen(seleccionado.ListaImagen[indiceImagen].ImagenUrl);
         }
+
         private void cargarImagen(string imagen)
         {
             try
