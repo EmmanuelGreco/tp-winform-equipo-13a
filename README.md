@@ -8,3 +8,4 @@
 ### Autor del Proyecto
 - Greco, Emmanuel Antonio [LinkedIn](https://www.linkedin.com/in/emmanuel-antonio-greco-689691b7)
 - Taquino, Pedro [LinkedIn](https://www.linkedin.com/in/pedro-taquino-737853225)
+- Alcala, Nahuel [LinkedIn](https://www.linkedin.com/in/nahuel-alcala-527078382)
