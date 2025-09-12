@@ -43,6 +43,12 @@
             this.lblFiltro = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnFiltro = new System.Windows.Forms.Button();
+            this.lbTitulo = new System.Windows.Forms.Label();
+            this.lbDescripcion = new System.Windows.Forms.Label();
+            this.lbPrecio = new System.Windows.Forms.Label();
+            this.lbCodigo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).BeginInit();
@@ -56,11 +62,11 @@
             this.dgvArticulos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulos.Location = new System.Drawing.Point(10, 27);
+            this.dgvArticulos.Location = new System.Drawing.Point(60, 40);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvArticulos.Size = new System.Drawing.Size(980, 290);
+            this.dgvArticulos.Size = new System.Drawing.Size(880, 200);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
@@ -90,21 +96,21 @@
             // articuloAgregarTSMenuItem
             // 
             this.articuloAgregarTSMenuItem.Name = "articuloAgregarTSMenuItem";
-            this.articuloAgregarTSMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.articuloAgregarTSMenuItem.Size = new System.Drawing.Size(135, 24);
             this.articuloAgregarTSMenuItem.Text = "Agregar";
             this.articuloAgregarTSMenuItem.Click += new System.EventHandler(this.articuloAgregarTSMenuItem_Click);
             // 
             // articuloModificarTSMenuItem
             // 
             this.articuloModificarTSMenuItem.Name = "articuloModificarTSMenuItem";
-            this.articuloModificarTSMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.articuloModificarTSMenuItem.Size = new System.Drawing.Size(135, 24);
             this.articuloModificarTSMenuItem.Text = "Modificar";
             this.articuloModificarTSMenuItem.Click += new System.EventHandler(this.articuloModificarTSMenuItem_Click);
             // 
             // articuloEliminarTSMenuItem
             // 
             this.articuloEliminarTSMenuItem.Name = "articuloEliminarTSMenuItem";
-            this.articuloEliminarTSMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.articuloEliminarTSMenuItem.Size = new System.Drawing.Size(135, 24);
             this.articuloEliminarTSMenuItem.Text = "Eliminar";
             this.articuloEliminarTSMenuItem.Click += new System.EventHandler(this.articuloEliminarTSMenuItem_Click);
             // 
@@ -125,7 +131,7 @@
             // btnImagenSiguiente
             // 
             this.btnImagenSiguiente.Image = global::WinFormsApp.Properties.Resources.flechaDer;
-            this.btnImagenSiguiente.Location = new System.Drawing.Point(620, 462);
+            this.btnImagenSiguiente.Location = new System.Drawing.Point(330, 385);
             this.btnImagenSiguiente.Name = "btnImagenSiguiente";
             this.btnImagenSiguiente.Size = new System.Drawing.Size(30, 30);
             this.btnImagenSiguiente.TabIndex = 3;
@@ -135,7 +141,7 @@
             // btnImagenAnterior
             // 
             this.btnImagenAnterior.Image = global::WinFormsApp.Properties.Resources.flechaIzq;
-            this.btnImagenAnterior.Location = new System.Drawing.Point(350, 462);
+            this.btnImagenAnterior.Location = new System.Drawing.Point(60, 385);
             this.btnImagenAnterior.Name = "btnImagenAnterior";
             this.btnImagenAnterior.Size = new System.Drawing.Size(30, 30);
             this.btnImagenAnterior.TabIndex = 2;
@@ -145,7 +151,7 @@
             // 
             // pbxImagenArticulo
             // 
-            this.pbxImagenArticulo.Location = new System.Drawing.Point(350, 327);
+            this.pbxImagenArticulo.Location = new System.Drawing.Point(60, 250);
             this.pbxImagenArticulo.Name = "pbxImagenArticulo";
             this.pbxImagenArticulo.Size = new System.Drawing.Size(300, 300);
             this.pbxImagenArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -181,11 +187,73 @@
             this.btnFiltro.UseVisualStyleBackColor = true;
             this.btnFiltro.Click += new System.EventHandler(this.btnFiltro_Click);
             // 
+            // lbTitulo
+            // 
+            this.lbTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lbTitulo.Location = new System.Drawing.Point(395, 275);
+            this.lbTitulo.Name = "lbTitulo";
+            this.lbTitulo.Size = new System.Drawing.Size(545, 65);
+            this.lbTitulo.TabIndex = 8;
+            this.lbTitulo.Text = "TITULO DEL PRODUCTO - TENGO 50 CHARS Q ES EL MAX!!";
+            // 
+            // lbDescripcion
+            // 
+            this.lbDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lbDescripcion.Location = new System.Drawing.Point(400, 410);
+            this.lbDescripcion.Name = "lbDescripcion";
+            this.lbDescripcion.Size = new System.Drawing.Size(540, 100);
+            this.lbDescripcion.TabIndex = 9;
+            this.lbDescripcion.Text = "DESCRIPCION DEL PRODUCTO - TENGO 150 CHARS Q ES EL MAX!! HOLA BUENAS NOCHES ESTE " +
+    "ES MI PRODUCTO EPICO, ES EL MEJOR DEL MUNDO LOCO AGUANTE ESTE CELU!!!";
+            // 
+            // lbPrecio
+            // 
+            this.lbPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.lbPrecio.Location = new System.Drawing.Point(395, 365);
+            this.lbPrecio.Name = "lbPrecio";
+            this.lbPrecio.Size = new System.Drawing.Size(545, 35);
+            this.lbPrecio.TabIndex = 10;
+            this.lbPrecio.Text = "$ 1.000.000.000";
+            // 
+            // lbCodigo
+            // 
+            this.lbCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.lbCodigo.Location = new System.Drawing.Point(400, 340);
+            this.lbCodigo.Name = "lbCodigo";
+            this.lbCodigo.Size = new System.Drawing.Size(540, 20);
+            this.lbCodigo.TabIndex = 11;
+            this.lbCodigo.Text = "Código de producto: SM238 ESTE ES TODO EL CODIGO, RE LARGO ERA NO? WAT";
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label1.Location = new System.Drawing.Point(400, 520);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(540, 25);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Marca: ESTA ES TODA LA MARCA, MIRA Q PUEDEN SER 50 CHARS!";
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.label2.Location = new System.Drawing.Point(400, 255);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(540, 25);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Categoría: ESTA ES TODA LA MARCA, MIRA Q PUEDEN SER 50 CHARS!";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1001, 676);
+            this.ClientSize = new System.Drawing.Size(1001, 561);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbCodigo);
+            this.Controls.Add(this.lbPrecio);
+            this.Controls.Add(this.lbDescripcion);
+            this.Controls.Add(this.lbTitulo);
             this.Controls.Add(this.btnFiltro);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblFiltro);
@@ -225,6 +293,12 @@
         private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Button btnFiltro;
+        private System.Windows.Forms.Label lbTitulo;
+        private System.Windows.Forms.Label lbDescripcion;
+        private System.Windows.Forms.Label lbPrecio;
+        private System.Windows.Forms.Label lbCodigo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

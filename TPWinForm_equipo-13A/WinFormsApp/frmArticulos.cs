@@ -42,7 +42,7 @@ namespace WinFormsApp
 
             try
             {
-                ocultarColumnas();
+                formatearColumnas();
                 cargarImagen(listaArticulo[0].ListaImagen[0].ImagenUrl);
             }
             catch (Exception)
@@ -51,9 +51,13 @@ namespace WinFormsApp
             }
         }
 
-        private void ocultarColumnas()
+        private void formatearColumnas()
         {
             dgvArticulos.Columns["Id"].Visible = false;
+            dgvArticulos.Columns["Codigo"].Visible = false;
+            dgvArticulos.Columns["Marca"].Visible = false;
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "C";
+
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
@@ -182,7 +186,7 @@ namespace WinFormsApp
 
             dgvArticulos.DataSource = null;
             dgvArticulos.DataSource = listaFiltrada;
-            ocultarColumnas();
+            formatearColumnas();
         }
     }
 }
