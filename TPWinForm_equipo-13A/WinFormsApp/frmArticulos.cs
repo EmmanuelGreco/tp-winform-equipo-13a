@@ -43,11 +43,11 @@ namespace WinFormsApp
             try
             {
                 formatearColumnas();
-                cargarImagen(listaArticulo[0].ListaImagen[0].ImagenUrl);
+                cargarDetalles(seleccionado);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                pbxImagenArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+                throw ex;
             }
         }
 
@@ -56,8 +56,26 @@ namespace WinFormsApp
             dgvArticulos.Columns["Id"].Visible = false;
             dgvArticulos.Columns["Codigo"].Visible = false;
             dgvArticulos.Columns["Marca"].Visible = false;
-            dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "C";
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "C";   //En formato dinero!
+        }
 
+        private void cargarDetalles(Articulo seleccionado)
+        {
+            try
+            {
+            cargarImagen(seleccionado.ListaImagen[indiceImagen].ImagenUrl);
+            }
+            catch (Exception)
+            {
+                pbxImagenArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+            }
+
+            lbTitulo.Text = seleccionado.Nombre;
+            lbPrecio.Text = seleccionado.Precio.ToString("C");              //En formato dinero!
+            lbDescripcion.Text = seleccionado.Descripcion;
+            lbCodigo.Text = seleccionado.Codigo;
+            lbMarca.Text = seleccionado.Marca.Descripcion;
+            lbCategoria.Text = seleccionado.Categoria.Descripcion;
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
@@ -80,11 +98,11 @@ namespace WinFormsApp
                 //if (seleccionado.ListaImagen.Count < )
                 try
                 {
-                    cargarImagen(seleccionado.ListaImagen[indiceImagen].ImagenUrl);
+                    cargarDetalles(seleccionado);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    pbxImagenArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+                    throw ex;
                 }
             }
         }

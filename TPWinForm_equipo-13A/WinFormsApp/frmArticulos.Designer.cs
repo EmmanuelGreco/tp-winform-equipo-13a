@@ -47,8 +47,8 @@
             this.lbDescripcion = new System.Windows.Forms.Label();
             this.lbPrecio = new System.Windows.Forms.Label();
             this.lbCodigo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbMarca = new System.Windows.Forms.Label();
+            this.lbCategoria = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).BeginInit();
@@ -190,16 +190,17 @@
             // lbTitulo
             // 
             this.lbTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lbTitulo.Location = new System.Drawing.Point(395, 275);
+            this.lbTitulo.Location = new System.Drawing.Point(395, 325);
             this.lbTitulo.Name = "lbTitulo";
             this.lbTitulo.Size = new System.Drawing.Size(545, 65);
             this.lbTitulo.TabIndex = 8;
             this.lbTitulo.Text = "TITULO DEL PRODUCTO - TENGO 50 CHARS Q ES EL MAX!!";
+            this.lbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbDescripcion
             // 
             this.lbDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.lbDescripcion.Location = new System.Drawing.Point(400, 410);
+            this.lbDescripcion.Location = new System.Drawing.Point(400, 440);
             this.lbDescripcion.Name = "lbDescripcion";
             this.lbDescripcion.Size = new System.Drawing.Size(540, 100);
             this.lbDescripcion.TabIndex = 9;
@@ -209,7 +210,7 @@
             // lbPrecio
             // 
             this.lbPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.lbPrecio.Location = new System.Drawing.Point(395, 365);
+            this.lbPrecio.Location = new System.Drawing.Point(395, 395);
             this.lbPrecio.Name = "lbPrecio";
             this.lbPrecio.Size = new System.Drawing.Size(545, 35);
             this.lbPrecio.TabIndex = 10;
@@ -218,38 +219,39 @@
             // lbCodigo
             // 
             this.lbCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.lbCodigo.Location = new System.Drawing.Point(400, 340);
+            this.lbCodigo.Location = new System.Drawing.Point(400, 305);
             this.lbCodigo.Name = "lbCodigo";
             this.lbCodigo.Size = new System.Drawing.Size(540, 20);
             this.lbCodigo.TabIndex = 11;
             this.lbCodigo.Text = "Código de producto: SM238 ESTE ES TODO EL CODIGO, RE LARGO ERA NO? WAT";
             // 
-            // label1
+            // lbMarca
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(400, 520);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(540, 25);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Marca: ESTA ES TODA LA MARCA, MIRA Q PUEDEN SER 50 CHARS!";
+            this.lbMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lbMarca.Location = new System.Drawing.Point(400, 255);
+            this.lbMarca.Name = "lbMarca";
+            this.lbMarca.Size = new System.Drawing.Size(265, 40);
+            this.lbMarca.TabIndex = 12;
+            this.lbMarca.Text = "Marca: ESTA ES TODA LA MARCA, MIRA Q PUEDEN SER 50 CHARS!";
+            this.lbMarca.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // label2
+            // lbCategoria
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.label2.Location = new System.Drawing.Point(400, 255);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(540, 25);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Categoría: ESTA ES TODA LA MARCA, MIRA Q PUEDEN SER 50 CHARS!";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lbCategoria.Location = new System.Drawing.Point(675, 255);
+            this.lbCategoria.Name = "lbCategoria";
+            this.lbCategoria.Size = new System.Drawing.Size(265, 40);
+            this.lbCategoria.TabIndex = 13;
+            this.lbCategoria.Text = "Categoría: ESTA ES TODA LA MARCA, MIRA Q PUEDEN SER 50 CHARS!";
+            this.lbCategoria.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1001, 561);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbCategoria);
+            this.Controls.Add(this.lbMarca);
             this.Controls.Add(this.lbCodigo);
             this.Controls.Add(this.lbPrecio);
             this.Controls.Add(this.lbDescripcion);
@@ -297,8 +299,8 @@
         private System.Windows.Forms.Label lbDescripcion;
         private System.Windows.Forms.Label lbPrecio;
         private System.Windows.Forms.Label lbCodigo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbMarca;
+        private System.Windows.Forms.Label lbCategoria;
     }
 }
 
