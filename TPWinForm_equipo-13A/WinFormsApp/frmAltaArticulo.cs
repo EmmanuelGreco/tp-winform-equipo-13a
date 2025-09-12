@@ -200,6 +200,7 @@ namespace WinFormsApp
             if (indiceImagen < imagenesTemporal.Count - 1)
                 indiceImagen++;
 
+            lbUrlImagen.Text = "URL - Imagen N°" + (indiceImagen + 1) + ":";
             txtUrlImagen.Text = imagenesTemporal[indiceImagen].ImagenUrl;
             cargarImagen(txtUrlImagen.Text);
             ActualizarBotonesImagen();
@@ -214,6 +215,7 @@ namespace WinFormsApp
             if (indiceImagen > 0)
                 indiceImagen--;
 
+            lbUrlImagen.Text = "URL - Imagen N°" + (indiceImagen + 1) + ":";
             txtUrlImagen.Text = imagenesTemporal[indiceImagen].ImagenUrl;
             cargarImagen(txtUrlImagen.Text);
             ActualizarBotonesImagen();
@@ -237,6 +239,7 @@ namespace WinFormsApp
             cargarImagen("");
 
             ActualizarBotonesImagen();
+            lbUrlImagen.Text = "URL - Imagen N°" + (indiceImagen + 1) + ":";
         }
 
         private void btnEliminarImagen_Click(object sender, EventArgs e)
@@ -275,6 +278,7 @@ namespace WinFormsApp
             }
 
             ActualizarBotonesImagen();
+            lbUrlImagen.Text = "URL - Imagen N°" + (indiceImagen + 1) + ":";
         }
 
         private void ActualizarBotonesImagen()
