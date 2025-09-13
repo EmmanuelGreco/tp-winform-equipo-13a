@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using Dominio;
 using Negocio;
 
@@ -156,6 +155,7 @@ namespace WinFormsApp
         private void articuloEliminarTSMenuItem_Click(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
+            ImagenNegocio negocioImagen = new ImagenNegocio();
             Articulo seleccionado;
 
             try
@@ -165,6 +165,7 @@ namespace WinFormsApp
                 {
                     seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                     negocio.eliminar(seleccionado.Id);
+                    negocioImagen.eliminarConIdArticulo(seleccionado.Id);
                     cargar();
                 }
             }

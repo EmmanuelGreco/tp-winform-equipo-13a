@@ -39,6 +39,7 @@ INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (4, 'https://sony.scene7.com
 INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (4, 'https://sony.scene7.com/is/image/sonyglobalsolutions/TVFY24_UE_6_Stand_M?$productIntroPlatemobile$&fmt=png-alpha')
 INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (4, 'https://sony.scene7.com/is/image/sonyglobalsolutions/TVFY24_UE_0_insitu_M?$productIntroPlatemobile$&fmt=png-alpha')
 
+SELECT * FROM IMAGENES
 
 -- QUERY UTILIZADA EN ARTICULO NEGOCIO: 
 SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, C.Descripcion Categoria, Precio FROM ARTICULOS A, Marcas M, Categorias C WHERE M.Id = A.IdMarca AND C.Id = A.IdCategoria
@@ -104,8 +105,12 @@ SELECT * FROM IMAGENES
 -- ELIMINO Y REINICIO IDS DE PRUEBAS
 DELETE FROM ARTICULOS
 DBCC CHECKIDENT (ARTICULOS, RESEED, 0)
-DELETE FROM IMAGENES WHERE IdArticulo = 4
+DELETE FROM IMAGENES
 DBCC CHECKIDENT (IMAGENES, RESEED, 0)
+DELETE FROM MARCAS
+DBCC CHECKIDENT (MARCAS, RESEED, 0)
+DELETE FROM CATEGORIAS
+DBCC CHECKIDENT (CATEGORIAS, RESEED, 0)
 
 
 -- QUERY UTILIZADA EN ELIMINAR ARTICULO:

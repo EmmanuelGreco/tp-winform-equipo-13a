@@ -1,17 +1,15 @@
-﻿using Dominio;
-using Negocio;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
+using Dominio;
+using Negocio;
 
 namespace WinFormsApp
 {
@@ -255,7 +253,7 @@ namespace WinFormsApp
                 try
                 {
                     ImagenNegocio negocioImagen = new ImagenNegocio();
-                    negocioImagen.eliminar(idImagenABorrar);
+                    negocioImagen.eliminarImagen(idImagenABorrar);
                 }
                 catch (Exception ex)
                 {
@@ -298,12 +296,12 @@ namespace WinFormsApp
         }
 
         // Este método se usaba anteriormente
-        /*private void GuardarURLTemporal()
+        private void GuardarURLTemporal()
         {
             if (indiceImagen >= 0 && indiceImagen < imagenesTemporal.Count)
             {
                 imagenesTemporal[indiceImagen].ImagenUrl = txtUrlImagen.Text.Trim();
             }
-        }*/
+        }
     }
 }
