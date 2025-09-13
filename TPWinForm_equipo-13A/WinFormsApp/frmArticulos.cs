@@ -53,7 +53,8 @@ namespace WinFormsApp
         private void formatearColumnas()
         {
             dgvArticulos.Columns["Id"].Visible = false;
-            dgvArticulos.Columns["Codigo"].Visible = false;
+            //dgvArticulos.Columns["Codigo"].Visible = false;
+            dgvArticulos.Columns["Descripcion"].Visible = false;
             dgvArticulos.Columns["Marca"].Visible = false;
             dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "C";   //En formato dinero!
         }
@@ -94,7 +95,7 @@ namespace WinFormsApp
                     btnImagenSiguiente.Visible = true;
                 }
 
-                //if (seleccionado.ListaImagen.Count < )
+                // if (seleccionado.ListaImagen.Count < )
                 try
                 {
                     cargarDetalles(seleccionado);
@@ -160,7 +161,12 @@ namespace WinFormsApp
 
             try
             {
-                DialogResult respuesta = MessageBox.Show("¿Desea confirmar la Eliminación?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dgvArticulos.CurrentRow == null)
+                {
+                    MessageBox.Show("Por favor, seleccione un Artículo a eliminar!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                DialogResult respuesta = MessageBox.Show("¿Desea confirmar la Eliminación del Artículo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes)
                 {
                     seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;

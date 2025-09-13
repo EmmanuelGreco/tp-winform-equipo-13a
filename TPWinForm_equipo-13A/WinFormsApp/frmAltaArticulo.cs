@@ -54,6 +54,20 @@ namespace WinFormsApp
                 if (articulo == null)
                     articulo = new Articulo();
 
+                if (string.IsNullOrWhiteSpace(txtCodigo.Text))
+                {
+                    MessageBox.Show("El campo 'Código' no puede estar vacío!", "Aviso!", 
+                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (negocio.existeCodigo(txtCodigo.Text, articulo.Id))
+                {
+                    MessageBox.Show("El 'Código' ingresado ya existe! Ingrese un 'Código' diferente!", "Aviso!", 
+                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 articulo.Codigo = txtCodigo.Text;
                 articulo.Nombre = txtNombre.Text;
                 articulo.Descripcion = txtDescripcion.Text;
@@ -71,12 +85,27 @@ namespace WinFormsApp
                 articulo.Marca = (Marca)cboMarca.SelectedItem;
                 articulo.Categoria = (Categoria)cboCategoria.SelectedItem;
 
-                // Reemplazo las ',' por '.' para tomar los decimales y minimizar errores de usuario.
+                if (string.IsNullOrWhiteSpace(txtPrecio.Text))
+                {
+                    MessageBox.Show("El campo 'Precio' no puede estar vacío!", "Aviso!", 
+                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Reemplazo las ',' por '.' para tomar los decimales y minimizar errores del usuario.
                 string ingresoUsuario = txtPrecio.Text.Trim().Replace(',', '.');
                 decimal precio;
                 if (!decimal.TryParse(ingresoUsuario, NumberStyles.Number, CultureInfo.InvariantCulture, out precio))
                 {
-                    MessageBox.Show("Ingrese un precio válido.");
+                    MessageBox.Show("Ingrese un 'Precio' válido!", "Aviso!", 
+                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (precio < 0)
+                {
+                    MessageBox.Show("El 'Precio' no puede ser negativo!", "Aviso!", 
+                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 articulo.Precio = precio;
@@ -296,12 +325,12 @@ namespace WinFormsApp
         }
 
         // Este método se usaba anteriormente
-        private void GuardarURLTemporal()
+        /*private void GuardarURLTemporal()
         {
             if (indiceImagen >= 0 && indiceImagen < imagenesTemporal.Count)
             {
                 imagenesTemporal[indiceImagen].ImagenUrl = txtUrlImagen.Text.Trim();
             }
-        }
+        }*/
     }
 }

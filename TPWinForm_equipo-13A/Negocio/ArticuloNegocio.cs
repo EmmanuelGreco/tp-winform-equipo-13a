@@ -181,5 +181,29 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+
+        public bool existeCodigo(string codigo, int idArticulo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                // Fuerzo Case Sensitive
+                datos.setearConsulta(@"SELECT Id FROM Articulos WHERE Codigo = @Codigo 
+                                       COLLATE SQL_Latin1_General_CP1_CS_AS AND Id <> @Id");
+                datos.setearParametro("@Codigo", codigo);
+                datos.setearParametro("@Id", idArticulo);
+                datos.ejecutarLectura();
+
+                return datos.Lector.Read();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }
