@@ -213,5 +213,26 @@ namespace WinFormsApp
             dgvArticulos.DataSource = listaFiltrada;
             formatearColumnas();
         }
+
+        private void marcaAgregarTSMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltaMarca alta = new frmAltaMarca("alta");
+            alta.ShowDialog();
+            cargar();
+        }
+
+        private void marcaModificarTSMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltaMarca modif = new frmAltaMarca("modificar");
+            modif.ShowDialog();
+            cargar();
+        }
+
+        private void marcaEliminarTSMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltaMarca baja = new frmAltaMarca("baja");
+            baja.ShowDialog();
+            cargar();
+        }
     }
 }

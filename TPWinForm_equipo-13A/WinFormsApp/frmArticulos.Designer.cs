@@ -36,6 +36,9 @@
             this.articuloModificarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.articuloEliminarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcaAgregarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcaModificarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcaEliminarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnImagenSiguiente = new System.Windows.Forms.Button();
             this.btnImagenAnterior = new System.Windows.Forms.Button();
@@ -116,10 +119,35 @@
             // 
             // marcasToolStripMenuItem
             // 
+            this.marcasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.marcaAgregarTSMenuItem,
+            this.marcaModificarTSMenuItem,
+            this.marcaEliminarTSMenuItem});
             this.marcasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.marcasToolStripMenuItem.Name = "marcasToolStripMenuItem";
             this.marcasToolStripMenuItem.Size = new System.Drawing.Size(65, 23);
             this.marcasToolStripMenuItem.Text = "Marcas";
+            // 
+            // marcaAgregarTSMenuItem
+            // 
+            this.marcaAgregarTSMenuItem.Name = "marcaAgregarTSMenuItem";
+            this.marcaAgregarTSMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.marcaAgregarTSMenuItem.Text = "Agregar";
+            this.marcaAgregarTSMenuItem.Click += new System.EventHandler(this.marcaAgregarTSMenuItem_Click);
+            // 
+            // marcaModificarTSMenuItem
+            // 
+            this.marcaModificarTSMenuItem.Name = "marcaModificarTSMenuItem";
+            this.marcaModificarTSMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.marcaModificarTSMenuItem.Text = "Modificar";
+            this.marcaModificarTSMenuItem.Click += new System.EventHandler(this.marcaModificarTSMenuItem_Click);
+            // 
+            // marcaEliminarTSMenuItem
+            // 
+            this.marcaEliminarTSMenuItem.Name = "marcaEliminarTSMenuItem";
+            this.marcaEliminarTSMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.marcaEliminarTSMenuItem.Text = "Eliminar";
+            this.marcaEliminarTSMenuItem.Click += new System.EventHandler(this.marcaEliminarTSMenuItem_Click);
             // 
             // categoríasToolStripMenuItem
             // 
@@ -301,6 +329,9 @@
         private System.Windows.Forms.Label lbCodigo;
         private System.Windows.Forms.Label lbMarca;
         private System.Windows.Forms.Label lbCategoria;
+        private System.Windows.Forms.ToolStripMenuItem marcaAgregarTSMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcaModificarTSMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcaEliminarTSMenuItem;
     }
 }
 
