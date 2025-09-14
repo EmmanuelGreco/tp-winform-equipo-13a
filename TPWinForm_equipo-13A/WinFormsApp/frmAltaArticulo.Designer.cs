@@ -96,6 +96,7 @@
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
             this.txtCodigo.Location = new System.Drawing.Point(175, 20);
+            this.txtCodigo.MaxLength = 50;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(160, 25);
             this.txtCodigo.TabIndex = 1;
@@ -104,6 +105,7 @@
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
             this.txtNombre.Location = new System.Drawing.Point(175, 65);
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(160, 25);
             this.txtNombre.TabIndex = 3;
@@ -112,6 +114,7 @@
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
             this.txtDescripcion.Location = new System.Drawing.Point(175, 110);
+            this.txtDescripcion.MaxLength = 150;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(160, 80);
@@ -121,6 +124,7 @@
             // 
             this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
             this.txtPrecio.Location = new System.Drawing.Point(175, 305);
+            this.txtPrecio.MaxLength = 50;
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(160, 25);
             this.txtPrecio.TabIndex = 11;
@@ -205,6 +209,7 @@
             // 
             this.txtUrlImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
             this.txtUrlImagen.Location = new System.Drawing.Point(175, 350);
+            this.txtUrlImagen.MaxLength = 1000;
             this.txtUrlImagen.Name = "txtUrlImagen";
             this.txtUrlImagen.Size = new System.Drawing.Size(415, 25);
             this.txtUrlImagen.TabIndex = 13;

@@ -44,7 +44,7 @@
             this.lbNuevaMarca.Location = new System.Drawing.Point(15, 55);
             this.lbNuevaMarca.Name = "lbNuevaMarca";
             this.lbNuevaMarca.Size = new System.Drawing.Size(240, 25);
-            this.lbNuevaMarca.TabIndex = 0;
+            this.lbNuevaMarca.TabIndex = 2;
             this.lbNuevaMarca.Text = "Nombre de la nueva marca:";
             this.lbNuevaMarca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -54,9 +54,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNuevaMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
             this.txtNuevaMarca.Location = new System.Drawing.Point(270, 55);
+            this.txtNuevaMarca.MaxLength = 50;
             this.txtNuevaMarca.Name = "txtNuevaMarca";
             this.txtNuevaMarca.Size = new System.Drawing.Size(320, 25);
-            this.txtNuevaMarca.TabIndex = 4;
+            this.txtNuevaMarca.TabIndex = 3;
             // 
             // btnAceptarMarca
             // 
@@ -67,7 +68,7 @@
             this.btnAceptarMarca.Location = new System.Drawing.Point(16, 96);
             this.btnAceptarMarca.Name = "btnAceptarMarca";
             this.btnAceptarMarca.Size = new System.Drawing.Size(85, 35);
-            this.btnAceptarMarca.TabIndex = 19;
+            this.btnAceptarMarca.TabIndex = 4;
             this.btnAceptarMarca.Text = "Aceptar";
             this.btnAceptarMarca.UseVisualStyleBackColor = false;
             this.btnAceptarMarca.Click += new System.EventHandler(this.btnAceptarMarca_Click);
@@ -81,7 +82,7 @@
             this.btnCancelarMarca.Location = new System.Drawing.Point(506, 96);
             this.btnCancelarMarca.Name = "btnCancelarMarca";
             this.btnCancelarMarca.Size = new System.Drawing.Size(85, 35);
-            this.btnCancelarMarca.TabIndex = 20;
+            this.btnCancelarMarca.TabIndex = 5;
             this.btnCancelarMarca.Text = "Cancelar";
             this.btnCancelarMarca.UseVisualStyleBackColor = false;
             this.btnCancelarMarca.Click += new System.EventHandler(this.btnCancelarMarca_Click);
@@ -92,7 +93,7 @@
             this.lbModifMarca.Location = new System.Drawing.Point(15, 15);
             this.lbModifMarca.Name = "lbModifMarca";
             this.lbModifMarca.Size = new System.Drawing.Size(240, 25);
-            this.lbModifMarca.TabIndex = 21;
+            this.lbModifMarca.TabIndex = 0;
             this.lbModifMarca.Text = "Nombre de la marca a modificar:";
             this.lbModifMarca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -105,7 +106,7 @@
             this.cboModifMarca.Location = new System.Drawing.Point(270, 15);
             this.cboModifMarca.Name = "cboModifMarca";
             this.cboModifMarca.Size = new System.Drawing.Size(320, 26);
-            this.cboModifMarca.TabIndex = 23;
+            this.cboModifMarca.TabIndex = 1;
             // 
             // frmAltaMarca
             // 

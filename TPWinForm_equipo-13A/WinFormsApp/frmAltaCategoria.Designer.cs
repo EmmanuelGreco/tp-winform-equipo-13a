@@ -44,7 +44,7 @@
             this.cboModifCategoria.Location = new System.Drawing.Point(290, 15);
             this.cboModifCategoria.Name = "cboModifCategoria";
             this.cboModifCategoria.Size = new System.Drawing.Size(300, 26);
-            this.cboModifCategoria.TabIndex = 29;
+            this.cboModifCategoria.TabIndex = 1;
             // 
             // lbModifCategoria
             // 
@@ -53,7 +53,7 @@
             this.lbModifCategoria.Location = new System.Drawing.Point(15, 15);
             this.lbModifCategoria.Name = "lbModifCategoria";
             this.lbModifCategoria.Size = new System.Drawing.Size(260, 25);
-            this.lbModifCategoria.TabIndex = 28;
+            this.lbModifCategoria.TabIndex = 0;
             this.lbModifCategoria.Text = "Nombre de la categoría a modificar:";
             this.lbModifCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -65,7 +65,7 @@
             this.btnCancelarCategoria.Location = new System.Drawing.Point(506, 96);
             this.btnCancelarCategoria.Name = "btnCancelarCategoria";
             this.btnCancelarCategoria.Size = new System.Drawing.Size(85, 35);
-            this.btnCancelarCategoria.TabIndex = 27;
+            this.btnCancelarCategoria.TabIndex = 5;
             this.btnCancelarCategoria.Text = "Cancelar";
             this.btnCancelarCategoria.UseVisualStyleBackColor = false;
             this.btnCancelarCategoria.Click += new System.EventHandler(this.btnCancelarCategoria_Click);
@@ -78,7 +78,7 @@
             this.btnAceptarCategoria.Location = new System.Drawing.Point(16, 96);
             this.btnAceptarCategoria.Name = "btnAceptarCategoria";
             this.btnAceptarCategoria.Size = new System.Drawing.Size(85, 35);
-            this.btnAceptarCategoria.TabIndex = 26;
+            this.btnAceptarCategoria.TabIndex = 4;
             this.btnAceptarCategoria.Text = "Aceptar";
             this.btnAceptarCategoria.UseVisualStyleBackColor = false;
             this.btnAceptarCategoria.Click += new System.EventHandler(this.btnAceptarCategoria_Click);
@@ -88,9 +88,10 @@
             this.txtNuevaCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.txtNuevaCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
             this.txtNuevaCategoria.Location = new System.Drawing.Point(290, 55);
+            this.txtNuevaCategoria.MaxLength = 50;
             this.txtNuevaCategoria.Name = "txtNuevaCategoria";
             this.txtNuevaCategoria.Size = new System.Drawing.Size(300, 25);
-            this.txtNuevaCategoria.TabIndex = 25;
+            this.txtNuevaCategoria.TabIndex = 3;
             // 
             // lbNuevaCategoria
             // 
@@ -99,7 +100,7 @@
             this.lbNuevaCategoria.Location = new System.Drawing.Point(15, 55);
             this.lbNuevaCategoria.Name = "lbNuevaCategoria";
             this.lbNuevaCategoria.Size = new System.Drawing.Size(260, 25);
-            this.lbNuevaCategoria.TabIndex = 24;
+            this.lbNuevaCategoria.TabIndex = 2;
             this.lbNuevaCategoria.Text = "Nombre de la nueva categoría:";
             this.lbNuevaCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
