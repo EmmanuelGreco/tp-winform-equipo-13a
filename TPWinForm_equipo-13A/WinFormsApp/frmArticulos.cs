@@ -34,20 +34,65 @@ namespace WinFormsApp
             listaArticulo = articuloNegocio.listar();
             dgvArticulos.DataSource = listaArticulo;
 
-            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-
-            if (seleccionado.ListaImagen.Count < 2) btnImagenSiguiente.Visible = false;
-            else btnImagenSiguiente.Visible = true;
-
             try
             {
+                seleccionado = (Articulo)dgvArticulos.Rows[0].DataBoundItem;
+                if (seleccionado.ListaImagen.Count < 2) btnImagenSiguiente.Visible = false;
+                else btnImagenSiguiente.Visible = true;
+                articuloModificarTSMenuItem.Enabled = true;
+                articuloEliminarTSMenuItem.Enabled = true;
                 formatearColumnas();
                 cargarDetalles(seleccionado);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                seleccionado = new Articulo();
+                btnImagenSiguiente.Visible = false;
+                articuloModificarTSMenuItem.Enabled = false;
+                articuloEliminarTSMenuItem.Enabled = false;
+
+                lbCategoria.Text = "";
+                lbCodigo.Text = "";
+                lbMarca.Text = "";
+                lbPrecio.Text = "";
+                lbTitulo.Text = "Ningún artículo para mostrar!";
+                lbDescripcion.Text = "Debe contar con al menos una marca y una categoría para poder añadir un artículo.";
+
+                formatearColumnas();
             }
+
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            
+            int cantMarcas = marcaNegocio.listar().Count;
+            int cantCategorias = categoriaNegocio.listar().Count;
+
+            if (cantMarcas == 0)
+            {
+                marcaModificarTSMenuItem.Enabled = false;
+                marcaEliminarTSMenuItem.Enabled = false;
+                articuloAgregarTSMenuItem.Enabled = false;
+            } else
+            {
+                marcaModificarTSMenuItem.Enabled = true;
+                marcaEliminarTSMenuItem.Enabled = true;
+            }
+            
+            if (cantCategorias == 0)
+            {
+                categoriaModificarTSMenuItem.Enabled = false;
+                categoriaEliminarTSMenuItem.Enabled = false;
+                articuloAgregarTSMenuItem.Enabled = false;
+            }
+            else
+            {
+                categoriaModificarTSMenuItem.Enabled = true;
+                categoriaEliminarTSMenuItem.Enabled = true;
+            }
+
+            if (cantMarcas != 0 && cantCategorias != 0)
+                articuloAgregarTSMenuItem.Enabled = true;
+
         }
 
         private void formatearColumnas()
@@ -63,7 +108,7 @@ namespace WinFormsApp
         {
             try
             {
-            cargarImagen(seleccionado.ListaImagen[indiceImagen].ImagenUrl);
+                cargarImagen(seleccionado.ListaImagen[indiceImagen].ImagenUrl);
             }
             catch (Exception)
             {
@@ -157,19 +202,13 @@ namespace WinFormsApp
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             ImagenNegocio negocioImagen = new ImagenNegocio();
-            Articulo seleccionado;
 
             try
             {
-                if (dgvArticulos.CurrentRow == null)
-                {
-                    MessageBox.Show("Por favor, seleccione un Artículo a eliminar!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
                 DialogResult respuesta = MessageBox.Show("¿Desea confirmar la Eliminación del Artículo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (respuesta == DialogResult.Yes)
                 {
-                    seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                    //seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                     negocio.eliminar(seleccionado.Id);
                     negocioImagen.eliminarConIdArticulo(seleccionado.Id);
                     cargar();

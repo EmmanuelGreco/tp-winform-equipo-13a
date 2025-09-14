@@ -40,6 +40,9 @@
             this.marcaModificarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcaEliminarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriaAgregarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriaModificarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriaEliminarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnImagenSiguiente = new System.Windows.Forms.Button();
             this.btnImagenAnterior = new System.Windows.Forms.Button();
             this.pbxImagenArticulo = new System.Windows.Forms.PictureBox();
@@ -52,9 +55,6 @@
             this.lbCodigo = new System.Windows.Forms.Label();
             this.lbMarca = new System.Windows.Forms.Label();
             this.lbCategoria = new System.Windows.Forms.Label();
-            this.categoriaAgregarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.categoriaModificarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.categoriaEliminarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).BeginInit();
@@ -134,21 +134,21 @@
             // marcaAgregarTSMenuItem
             // 
             this.marcaAgregarTSMenuItem.Name = "marcaAgregarTSMenuItem";
-            this.marcaAgregarTSMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.marcaAgregarTSMenuItem.Size = new System.Drawing.Size(135, 24);
             this.marcaAgregarTSMenuItem.Text = "Agregar";
             this.marcaAgregarTSMenuItem.Click += new System.EventHandler(this.marcaAgregarTSMenuItem_Click);
             // 
             // marcaModificarTSMenuItem
             // 
             this.marcaModificarTSMenuItem.Name = "marcaModificarTSMenuItem";
-            this.marcaModificarTSMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.marcaModificarTSMenuItem.Size = new System.Drawing.Size(135, 24);
             this.marcaModificarTSMenuItem.Text = "Modificar";
             this.marcaModificarTSMenuItem.Click += new System.EventHandler(this.marcaModificarTSMenuItem_Click);
             // 
             // marcaEliminarTSMenuItem
             // 
             this.marcaEliminarTSMenuItem.Name = "marcaEliminarTSMenuItem";
-            this.marcaEliminarTSMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.marcaEliminarTSMenuItem.Size = new System.Drawing.Size(135, 24);
             this.marcaEliminarTSMenuItem.Text = "Eliminar";
             this.marcaEliminarTSMenuItem.Click += new System.EventHandler(this.marcaEliminarTSMenuItem_Click);
             // 
@@ -162,6 +162,27 @@
             this.categoríasToolStripMenuItem.Name = "categoríasToolStripMenuItem";
             this.categoríasToolStripMenuItem.Size = new System.Drawing.Size(86, 23);
             this.categoríasToolStripMenuItem.Text = "Categorías";
+            // 
+            // categoriaAgregarTSMenuItem
+            // 
+            this.categoriaAgregarTSMenuItem.Name = "categoriaAgregarTSMenuItem";
+            this.categoriaAgregarTSMenuItem.Size = new System.Drawing.Size(135, 24);
+            this.categoriaAgregarTSMenuItem.Text = "Agregar";
+            this.categoriaAgregarTSMenuItem.Click += new System.EventHandler(this.categoriaAgregarTSMenuItem_Click);
+            // 
+            // categoriaModificarTSMenuItem
+            // 
+            this.categoriaModificarTSMenuItem.Name = "categoriaModificarTSMenuItem";
+            this.categoriaModificarTSMenuItem.Size = new System.Drawing.Size(135, 24);
+            this.categoriaModificarTSMenuItem.Text = "Modificar";
+            this.categoriaModificarTSMenuItem.Click += new System.EventHandler(this.categoriaModificarTSMenuItem_Click);
+            // 
+            // categoriaEliminarTSMenuItem
+            // 
+            this.categoriaEliminarTSMenuItem.Name = "categoriaEliminarTSMenuItem";
+            this.categoriaEliminarTSMenuItem.Size = new System.Drawing.Size(135, 24);
+            this.categoriaEliminarTSMenuItem.Text = "Eliminar";
+            this.categoriaEliminarTSMenuItem.Click += new System.EventHandler(this.categoriaEliminarTSMenuItem_Click);
             // 
             // btnImagenSiguiente
             // 
@@ -229,7 +250,7 @@
             this.lbTitulo.Name = "lbTitulo";
             this.lbTitulo.Size = new System.Drawing.Size(545, 65);
             this.lbTitulo.TabIndex = 8;
-            this.lbTitulo.Text = "TITULO DEL PRODUCTO - TENGO 50 CHARS Q ES EL MAX!!";
+            this.lbTitulo.Text = "Ningún artículo para mostrar!";
             this.lbTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbDescripcion
@@ -239,8 +260,8 @@
             this.lbDescripcion.Name = "lbDescripcion";
             this.lbDescripcion.Size = new System.Drawing.Size(540, 100);
             this.lbDescripcion.TabIndex = 10;
-            this.lbDescripcion.Text = "DESCRIPCION DEL PRODUCTO - TENGO 150 CHARS Q ES EL MAX!! HOLA BUENAS NOCHES ESTE " +
-    "ES MI PRODUCTO EPICO, ES EL MEJOR DEL MUNDO LOCO AGUANTE ESTE CELU!!!";
+            this.lbDescripcion.Text = "Debe contar con al menos una marca y una categoría para poder añadir un artículo." +
+    "";
             // 
             // lbPrecio
             // 
@@ -249,7 +270,6 @@
             this.lbPrecio.Name = "lbPrecio";
             this.lbPrecio.Size = new System.Drawing.Size(545, 35);
             this.lbPrecio.TabIndex = 9;
-            this.lbPrecio.Text = "$ 1.000.000.000";
             // 
             // lbCodigo
             // 
@@ -258,7 +278,6 @@
             this.lbCodigo.Name = "lbCodigo";
             this.lbCodigo.Size = new System.Drawing.Size(540, 20);
             this.lbCodigo.TabIndex = 7;
-            this.lbCodigo.Text = "Código de producto: SM238 ESTE ES TODO EL CODIGO, RE LARGO ERA NO? WAT";
             // 
             // lbMarca
             // 
@@ -267,7 +286,6 @@
             this.lbMarca.Name = "lbMarca";
             this.lbMarca.Size = new System.Drawing.Size(265, 40);
             this.lbMarca.TabIndex = 5;
-            this.lbMarca.Text = "Marca: ESTA ES TODA LA MARCA, MIRA Q PUEDEN SER 50 CHARS!";
             this.lbMarca.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // lbCategoria
@@ -277,29 +295,7 @@
             this.lbCategoria.Name = "lbCategoria";
             this.lbCategoria.Size = new System.Drawing.Size(265, 40);
             this.lbCategoria.TabIndex = 6;
-            this.lbCategoria.Text = "Categoría: ESTA ES TODA LA MARCA, MIRA Q PUEDEN SER 50 CHARS!";
             this.lbCategoria.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // categoriaAgregarTSMenuItem
-            // 
-            this.categoriaAgregarTSMenuItem.Name = "categoriaAgregarTSMenuItem";
-            this.categoriaAgregarTSMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.categoriaAgregarTSMenuItem.Text = "Agregar";
-            this.categoriaAgregarTSMenuItem.Click += new System.EventHandler(this.categoriaAgregarTSMenuItem_Click);
-            // 
-            // categoriaModificarTSMenuItem
-            // 
-            this.categoriaModificarTSMenuItem.Name = "categoriaModificarTSMenuItem";
-            this.categoriaModificarTSMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.categoriaModificarTSMenuItem.Text = "Modificar";
-            this.categoriaModificarTSMenuItem.Click += new System.EventHandler(this.categoriaModificarTSMenuItem_Click);
-            // 
-            // categoriaEliminarTSMenuItem
-            // 
-            this.categoriaEliminarTSMenuItem.Name = "categoriaEliminarTSMenuItem";
-            this.categoriaEliminarTSMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.categoriaEliminarTSMenuItem.Text = "Eliminar";
-            this.categoriaEliminarTSMenuItem.Click += new System.EventHandler(this.categoriaEliminarTSMenuItem_Click);
             // 
             // frmArticulos
             // 
