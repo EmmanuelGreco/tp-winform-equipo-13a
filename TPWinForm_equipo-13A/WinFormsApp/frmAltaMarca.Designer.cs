@@ -38,7 +38,8 @@
             // 
             // lbNuevaMarca
             // 
-            this.lbNuevaMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbNuevaMarca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.lbNuevaMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbNuevaMarca.Location = new System.Drawing.Point(15, 55);
             this.lbNuevaMarca.Name = "lbNuevaMarca";
@@ -49,7 +50,8 @@
             // 
             // txtNuevaMarca
             // 
-            this.txtNuevaMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtNuevaMarca.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNuevaMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
             this.txtNuevaMarca.Location = new System.Drawing.Point(270, 55);
             this.txtNuevaMarca.Name = "txtNuevaMarca";
@@ -58,6 +60,7 @@
             // 
             // btnAceptarMarca
             // 
+            this.btnAceptarMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAceptarMarca.BackColor = System.Drawing.Color.Lime;
             this.btnAceptarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptarMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
@@ -71,6 +74,7 @@
             // 
             // btnCancelarMarca
             // 
+            this.btnCancelarMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelarMarca.BackColor = System.Drawing.Color.Red;
             this.btnCancelarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
@@ -84,7 +88,6 @@
             // 
             // lbModifMarca
             // 
-            this.lbModifMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.lbModifMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbModifMarca.Location = new System.Drawing.Point(15, 15);
             this.lbModifMarca.Name = "lbModifMarca";
@@ -95,6 +98,7 @@
             // 
             // cboModifMarca
             // 
+            this.cboModifMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cboModifMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboModifMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
             this.cboModifMarca.FormattingEnabled = true;
@@ -114,6 +118,8 @@
             this.Controls.Add(this.btnAceptarMarca);
             this.Controls.Add(this.txtNuevaMarca);
             this.Controls.Add(this.lbNuevaMarca);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "frmAltaMarca";
             this.Text = "frmAltaMarca.Text";
             this.Load += new System.EventHandler(this.frmAltaMarca_Load);

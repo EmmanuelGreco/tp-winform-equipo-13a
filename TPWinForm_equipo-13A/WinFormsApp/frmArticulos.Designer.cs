@@ -52,6 +52,9 @@
             this.lbCodigo = new System.Windows.Forms.Label();
             this.lbMarca = new System.Windows.Forms.Label();
             this.lbCategoria = new System.Windows.Forms.Label();
+            this.categoriaAgregarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriaModificarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoriaEliminarTSMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).BeginInit();
@@ -151,6 +154,10 @@
             // 
             // categoríasToolStripMenuItem
             // 
+            this.categoríasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.categoriaAgregarTSMenuItem,
+            this.categoriaModificarTSMenuItem,
+            this.categoriaEliminarTSMenuItem});
             this.categoríasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.categoríasToolStripMenuItem.Name = "categoríasToolStripMenuItem";
             this.categoríasToolStripMenuItem.Size = new System.Drawing.Size(86, 23);
@@ -273,6 +280,27 @@
             this.lbCategoria.Text = "Categoría: ESTA ES TODA LA MARCA, MIRA Q PUEDEN SER 50 CHARS!";
             this.lbCategoria.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
+            // categoriaAgregarTSMenuItem
+            // 
+            this.categoriaAgregarTSMenuItem.Name = "categoriaAgregarTSMenuItem";
+            this.categoriaAgregarTSMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.categoriaAgregarTSMenuItem.Text = "Agregar";
+            this.categoriaAgregarTSMenuItem.Click += new System.EventHandler(this.categoriaAgregarTSMenuItem_Click);
+            // 
+            // categoriaModificarTSMenuItem
+            // 
+            this.categoriaModificarTSMenuItem.Name = "categoriaModificarTSMenuItem";
+            this.categoriaModificarTSMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.categoriaModificarTSMenuItem.Text = "Modificar";
+            this.categoriaModificarTSMenuItem.Click += new System.EventHandler(this.categoriaModificarTSMenuItem_Click);
+            // 
+            // categoriaEliminarTSMenuItem
+            // 
+            this.categoriaEliminarTSMenuItem.Name = "categoriaEliminarTSMenuItem";
+            this.categoriaEliminarTSMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.categoriaEliminarTSMenuItem.Text = "Eliminar";
+            this.categoriaEliminarTSMenuItem.Click += new System.EventHandler(this.categoriaEliminarTSMenuItem_Click);
+            // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,7 +320,9 @@
             this.Controls.Add(this.pbxImagenArticulo);
             this.Controls.Add(this.dgvArticulos);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "frmArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado de Artículos";
@@ -332,6 +362,9 @@
         private System.Windows.Forms.ToolStripMenuItem marcaAgregarTSMenuItem;
         private System.Windows.Forms.ToolStripMenuItem marcaModificarTSMenuItem;
         private System.Windows.Forms.ToolStripMenuItem marcaEliminarTSMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem categoriaAgregarTSMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem categoriaModificarTSMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem categoriaEliminarTSMenuItem;
     }
 }
 

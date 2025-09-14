@@ -15,13 +15,13 @@ namespace WinFormsApp
     public partial class frmAltaMarca : Form
     {
         MarcaNegocio marcaNegocio = new MarcaNegocio();
-        string altaModif;
+        string modoABM;
         
-        public frmAltaMarca(string altaModif)
+        public frmAltaMarca(string modoABM)
         {
             InitializeComponent();
-            configVisual(altaModif);        //Acomoda los controles y cambia el nombre del form segun el modo elegido.
-            this.altaModif = altaModif;
+            configVisual(modoABM);        //Acomoda los controles y cambia el nombre del form segun el modo elegido.
+            this.modoABM = modoABM;
         }
 
         private void frmAltaMarca_Load(object sender, EventArgs e)
@@ -32,37 +32,11 @@ namespace WinFormsApp
             cboModifMarca.DisplayMember = "Descripcion";
         }
 
-        private void configVisual(string altaModif)
-        {
-            if (altaModif == "alta")
-            {
-                Text = "Nueva Marca";
-                lbModifMarca.Visible = false;
-                cboModifMarca.Visible = false;
-                lbNuevaMarca.Location = new Point(15, 35);
-                txtNuevaMarca.Location = new Point(255, 35);
-            }
-            else if (altaModif == "modificar")
-            {
-                Text = "Modificar Marca";
-                lbNuevaMarca.Text = "Nuevo nombre de la marca:";
-            } 
-            else if (altaModif == "baja")
-            {
-                Text = "Eliminar Marca";
-                lbModifMarca.Text = "Nombre de la marca a eliminar:";
-                lbNuevaMarca.Visible = false;
-                txtNuevaMarca.Visible = false;
-                lbModifMarca.Location = new Point(15, 35);
-                cboModifMarca.Location = new Point(255, 35);
-            }
-        }
-
         private void btnAceptarMarca_Click(object sender, EventArgs e)
         {
             string nuevaMarca = txtNuevaMarca.Text;
             
-            if (altaModif == "alta") 
+            if (modoABM == "alta") 
             {
                 nuevaMarca = validarEntrada(nuevaMarca, 0);
                 //Si el texto no es vacio, y no existe previamente en la BD, agregarlo.
@@ -72,7 +46,7 @@ namespace WinFormsApp
                     return;                
                 Close();
             } 
-            else if (altaModif == "modificar")
+            else if (modoABM == "modificar")
             {
                 int idMarca = (int)cboModifMarca.SelectedValue;
                 nuevaMarca = validarEntrada(nuevaMarca, idMarca);
@@ -82,7 +56,7 @@ namespace WinFormsApp
                     return;
                 Close();
             }
-            else if (altaModif == "baja")
+            else if (modoABM == "baja")
             {
                 int idMarca = (int)cboModifMarca.SelectedValue;
                 if (!marcaNegocio.eliminar(idMarca))
@@ -120,6 +94,32 @@ namespace WinFormsApp
                 return "";
             }
             return nuevaMarca;
+        }
+        
+        private void configVisual(string modoABM)
+        {
+            if (modoABM == "alta")
+            {
+                Text = "Nueva Marca";
+                lbModifMarca.Visible = false;
+                cboModifMarca.Visible = false;
+                lbNuevaMarca.Location = new Point(15, 35);
+                txtNuevaMarca.Location = new Point(255, 35);
+            }
+            else if (modoABM == "modificar")
+            {
+                Text = "Modificar Marca";
+                lbNuevaMarca.Text = "Nuevo nombre de la marca:";
+            } 
+            else if (modoABM == "baja")
+            {
+                Text = "Eliminar Marca";
+                lbModifMarca.Text = "Nombre de la marca a eliminar:";
+                lbNuevaMarca.Visible = false;
+                txtNuevaMarca.Visible = false;
+                lbModifMarca.Location = new Point(15, 35);
+                cboModifMarca.Location = new Point(255, 35);
+            }
         }
     }
 }

@@ -234,5 +234,26 @@ namespace WinFormsApp
             baja.ShowDialog();
             cargar();
         }
+
+        private void categoriaAgregarTSMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltaCategoria alta = new frmAltaCategoria("alta");
+            alta.ShowDialog();
+            cargar();
+        }
+
+        private void categoriaModificarTSMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltaCategoria modif = new frmAltaCategoria("modificar");
+            modif.ShowDialog();
+            cargar();
+        }
+
+        private void categoriaEliminarTSMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAltaCategoria baja = new frmAltaCategoria("baja");
+            baja.ShowDialog();
+            cargar();
+        }
     }
 }
