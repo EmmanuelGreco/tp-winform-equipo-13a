@@ -1,14 +1,15 @@
-﻿using System;
+﻿using Dominio;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Dominio;
-using Negocio;
 
 namespace WinFormsApp
 {
@@ -232,6 +233,8 @@ namespace WinFormsApp
 
             try
             {
+                if (validarFiltroAvanzado())
+                    return;
                 string campo = cboCampoFiltro.SelectedItem.ToString();
                 string criterio = cboCriterioFiltro.SelectedItem.ToString();
                 string filtro = txtFiltroAvanzado.Text;
@@ -241,6 +244,48 @@ namespace WinFormsApp
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private bool validarFiltroAvanzado()
+        {
+            if (cboCampoFiltro.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione el Campo a filtrar.", "Aviso!",
+                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+
+            if (cboCriterioFiltro.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione el Criterio a filtrar.", "Aviso!",
+                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+            }
+
+            if (cboCampoFiltro.SelectedItem.ToString() == "Precio")
+            {
+                if (!(soloNumeros(txtFiltroAvanzado.Text))){
+                MessageBox.Show("Por favor, ingrese un Precio válido!", "Aviso!",
+                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool soloNumeros(string cadena)
+        {
+            // Reemplazo las ',' por '.' para tomar los decimales y minimizar errores del usuario.
+            cadena = cadena.Trim().Replace(',', '.');
+            decimal precio;
+
+            if (!decimal.TryParse(cadena, NumberStyles.Number, CultureInfo.InvariantCulture, out precio))
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)

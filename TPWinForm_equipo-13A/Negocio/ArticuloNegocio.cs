@@ -238,29 +238,19 @@ namespace Negocio
                 }
                 else
                 {
-                    try
+                    filtro = filtro.Trim().Replace(',', '.');
+                    decimal precio = decimal.Parse(filtro, CultureInfo.InvariantCulture);
+                    switch (criterio)
                     {
-                        // Reemplazo las ',' por '.' para tomar los decimales y minimizar errores del usuario.
-                        filtro = filtro.Trim().Replace(',', '.'); 
-                        decimal precio;
-                        decimal.TryParse(filtro, NumberStyles.Number, CultureInfo.InvariantCulture, out precio);
-                        switch (criterio)
-                        {
-                            case "Mayor a":
-                                consulta += "Precio > " + filtro;
-                                break;
-                            case "Menor a":
-                                consulta += "Precio < " + filtro;
-                                break;
-                            default: // Igual a
-                                consulta += "Precio = " + filtro;
-                                break;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-
-                        throw ex;
+                        case "Mayor a":
+                            consulta += "Precio > " + filtro;
+                            break;
+                        case "Menor a":
+                            consulta += "Precio < " + filtro;
+                            break;
+                        default: // Igual a
+                            consulta += "Precio = " + filtro;
+                            break;
                     }
                 }
 
@@ -299,6 +289,7 @@ namespace Negocio
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
             finally
