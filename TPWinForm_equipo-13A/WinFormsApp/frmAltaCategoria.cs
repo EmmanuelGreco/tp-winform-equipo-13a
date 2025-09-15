@@ -61,7 +61,7 @@ namespace WinFormsApp
                 int idCategoria = (int)cboModifCategoria.SelectedValue;
                 if (!categoriaNegocio.eliminar(idCategoria))
                 {
-                    MessageBox.Show("Esta categoría está en uso! No pueden eliminarse categorías ligadas a artículos existentes.", "Aviso!",
+                    MessageBox.Show("Esta 'Categoría' está en uso! No pueden eliminarse Categorías ligadas a artículos existentes.", "Aviso!",
                                      MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -89,7 +89,7 @@ namespace WinFormsApp
             //Si ya existe la categoría, no te va a dejar.
             if (categoriaNegocio.existe(nuevaCategoria, idCategoria))
             {
-                MessageBox.Show("La categoría ingresada ya existe! Ingrese una categoría diferente!", "Aviso!",
+                MessageBox.Show("La 'Categoría' ingresada ya existe! Ingrese una 'Categoría' diferente!", "Aviso!",
                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return "";
             }
@@ -109,18 +109,17 @@ namespace WinFormsApp
             else if (modoABM == "modificar")
             {
                 Text = "Modificar Categoría";
-                lbNuevaCategoria.Text = "Nuevo nombre de la categoría:";
+                lbNuevaCategoria.Text = "Nuevo nombre de la Categoría:";
             }
             else if (modoABM == "baja")
             {
                 Text = "Eliminar Categoría";
-                lbModifCategoria.Text = "Nombre de la categoría a eliminar:";
+                lbModifCategoria.Text = "Nombre de la Categoría a eliminar:";
                 lbNuevaCategoria.Visible = false;
                 txtNuevaCategoria.Visible = false;
                 lbModifCategoria.Location = new Point(15, 35);
                 cboModifCategoria.Location = new Point(290, 35);
             }
         }
-
     }
 }

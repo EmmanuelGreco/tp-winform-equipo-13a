@@ -49,33 +49,34 @@
             this.btnImagenAnterior = new System.Windows.Forms.Button();
             this.btnImagenSiguiente = new System.Windows.Forms.Button();
             this.pbxImagenArticulo = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCodigo
             // 
             this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCodigo.Location = new System.Drawing.Point(105, 20);
+            this.lblCodigo.Location = new System.Drawing.Point(97, 20);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(63, 25);
+            this.lblCodigo.Size = new System.Drawing.Size(70, 25);
             this.lblCodigo.TabIndex = 0;
-            this.lblCodigo.Text = "Código:";
+            this.lblCodigo.Text = "Código*:";
             this.lblCodigo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblNombre
             // 
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblNombre.Location = new System.Drawing.Point(100, 65);
+            this.lblNombre.Location = new System.Drawing.Point(92, 65);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(69, 25);
+            this.lblNombre.Size = new System.Drawing.Size(75, 25);
             this.lblNombre.TabIndex = 2;
-            this.lblNombre.Text = "Nombre:";
+            this.lblNombre.Text = "Nombre*:";
             this.lblNombre.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblDescripcion
             // 
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblDescripcion.Location = new System.Drawing.Point(70, 110);
+            this.lblDescripcion.Location = new System.Drawing.Point(71, 110);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(96, 25);
             this.lblDescripcion.TabIndex = 4;
@@ -85,11 +86,11 @@
             // lblPrecio
             // 
             this.lblPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblPrecio.Location = new System.Drawing.Point(110, 305);
+            this.lblPrecio.Location = new System.Drawing.Point(102, 300);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(57, 25);
+            this.lblPrecio.Size = new System.Drawing.Size(65, 25);
             this.lblPrecio.TabIndex = 10;
-            this.lblPrecio.Text = "Precio:";
+            this.lblPrecio.Text = "Precio*:";
             this.lblPrecio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtCodigo
@@ -123,7 +124,7 @@
             // txtPrecio
             // 
             this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
-            this.txtPrecio.Location = new System.Drawing.Point(175, 305);
+            this.txtPrecio.Location = new System.Drawing.Point(175, 300);
             this.txtPrecio.MaxLength = 50;
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(160, 25);
@@ -134,7 +135,7 @@
             this.btnAceptar.BackColor = System.Drawing.Color.Lime;
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.btnAceptar.Location = new System.Drawing.Point(15, 405);
+            this.btnAceptar.Location = new System.Drawing.Point(15, 434);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(85, 35);
             this.btnAceptar.TabIndex = 18;
@@ -147,7 +148,7 @@
             this.btnCancelar.BackColor = System.Drawing.Color.Red;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.btnCancelar.Location = new System.Drawing.Point(505, 405);
+            this.btnCancelar.Location = new System.Drawing.Point(505, 434);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(85, 35);
             this.btnCancelar.TabIndex = 19;
@@ -168,7 +169,7 @@
             // lblCategoria
             // 
             this.lblCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCategoria.Location = new System.Drawing.Point(85, 260);
+            this.lblCategoria.Location = new System.Drawing.Point(85, 255);
             this.lblCategoria.Name = "lblCategoria";
             this.lblCategoria.Size = new System.Drawing.Size(82, 25);
             this.lblCategoria.TabIndex = 8;
@@ -190,7 +191,7 @@
             this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(175, 260);
+            this.cboCategoria.Location = new System.Drawing.Point(175, 255);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(160, 26);
             this.cboCategoria.TabIndex = 9;
@@ -198,7 +199,7 @@
             // lbUrlImagen
             // 
             this.lbUrlImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbUrlImagen.Location = new System.Drawing.Point(15, 350);
+            this.lbUrlImagen.Location = new System.Drawing.Point(15, 345);
             this.lbUrlImagen.Name = "lbUrlImagen";
             this.lbUrlImagen.Size = new System.Drawing.Size(152, 25);
             this.lbUrlImagen.TabIndex = 12;
@@ -208,7 +209,7 @@
             // txtUrlImagen
             // 
             this.txtUrlImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F);
-            this.txtUrlImagen.Location = new System.Drawing.Point(175, 350);
+            this.txtUrlImagen.Location = new System.Drawing.Point(175, 345);
             this.txtUrlImagen.MaxLength = 1000;
             this.txtUrlImagen.Name = "txtUrlImagen";
             this.txtUrlImagen.Size = new System.Drawing.Size(415, 25);
@@ -220,7 +221,7 @@
             this.btnAgregarImagen.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnAgregarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarImagen.Location = new System.Drawing.Point(365, 260);
+            this.btnAgregarImagen.Location = new System.Drawing.Point(365, 255);
             this.btnAgregarImagen.Name = "btnAgregarImagen";
             this.btnAgregarImagen.Size = new System.Drawing.Size(225, 25);
             this.btnAgregarImagen.TabIndex = 16;
@@ -233,7 +234,7 @@
             this.btnEliminarImagen.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnEliminarImagen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminarImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarImagen.Location = new System.Drawing.Point(365, 305);
+            this.btnEliminarImagen.Location = new System.Drawing.Point(365, 300);
             this.btnEliminarImagen.Name = "btnEliminarImagen";
             this.btnEliminarImagen.Size = new System.Drawing.Size(225, 25);
             this.btnEliminarImagen.TabIndex = 17;
@@ -271,11 +272,22 @@
             this.pbxImagenArticulo.TabIndex = 13;
             this.pbxImagenArticulo.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label2.Location = new System.Drawing.Point(27, 390);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(140, 25);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "*Campos requeridos";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // frmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(606, 451);
+            this.ClientSize = new System.Drawing.Size(606, 488);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnEliminarImagen);
             this.Controls.Add(this.btnAgregarImagen);
             this.Controls.Add(this.btnImagenAnterior);
@@ -301,7 +313,7 @@
             this.MaximizeBox = false;
             this.Name = "frmAltaArticulo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nuevo Artículo";
+            this.Text = "Alta Artículo";
             this.Load += new System.EventHandler(this.frmAltaArticulo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).EndInit();
             this.ResumeLayout(false);
@@ -332,5 +344,6 @@
         private System.Windows.Forms.Button btnImagenAnterior;
         private System.Windows.Forms.Button btnAgregarImagen;
         private System.Windows.Forms.Button btnEliminarImagen;
+        private System.Windows.Forms.Label label2;
     }
 }

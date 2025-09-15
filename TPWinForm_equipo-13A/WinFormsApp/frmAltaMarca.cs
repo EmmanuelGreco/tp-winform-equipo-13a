@@ -61,7 +61,7 @@ namespace WinFormsApp
                 int idMarca = (int)cboModifMarca.SelectedValue;
                 if (!marcaNegocio.eliminar(idMarca))
                 {
-                    MessageBox.Show("Esta marca está en uso! No pueden eliminarse marcas ligadas a artículos existentes.", "Aviso!",
+                    MessageBox.Show("Esta 'Marca' está en uso! No pueden eliminarse 'Marcas' ligadas a Artículos existentes.", "Aviso!",
                                      MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -89,7 +89,7 @@ namespace WinFormsApp
             //Si ya existe la marca, no te va a dejar.
             if (marcaNegocio.existe(nuevaMarca, idMarca))
             {
-                MessageBox.Show("La marca ingresada ya existe! Ingrese una marca diferente!", "Aviso!",
+                MessageBox.Show("La 'Marca' ingresada ya existe! Ingrese una 'Marca' diferente!", "Aviso!",
                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return "";
             }
@@ -104,21 +104,21 @@ namespace WinFormsApp
                 lbModifMarca.Visible = false;
                 cboModifMarca.Visible = false;
                 lbNuevaMarca.Location = new Point(15, 35);
-                txtNuevaMarca.Location = new Point(255, 35);
+                txtNuevaMarca.Location = new Point(270, 35);
             }
             else if (modoABM == "modificar")
             {
                 Text = "Modificar Marca";
-                lbNuevaMarca.Text = "Nuevo nombre de la marca:";
+                lbNuevaMarca.Text = "Nuevo nombre de la Marca:";
             } 
             else if (modoABM == "baja")
             {
                 Text = "Eliminar Marca";
-                lbModifMarca.Text = "Nombre de la marca a eliminar:";
+                lbModifMarca.Text = "Nombre de la Marca a eliminar:";
                 lbNuevaMarca.Visible = false;
                 txtNuevaMarca.Visible = false;
                 lbModifMarca.Location = new Point(15, 35);
-                cboModifMarca.Location = new Point(255, 35);
+                cboModifMarca.Location = new Point(270, 35);
             }
         }
     }

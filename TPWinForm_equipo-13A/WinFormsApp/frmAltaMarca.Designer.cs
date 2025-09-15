@@ -45,7 +45,7 @@
             this.lbNuevaMarca.Name = "lbNuevaMarca";
             this.lbNuevaMarca.Size = new System.Drawing.Size(240, 25);
             this.lbNuevaMarca.TabIndex = 2;
-            this.lbNuevaMarca.Text = "Nombre de la nueva marca:";
+            this.lbNuevaMarca.Text = "Nombre de la nueva Marca:";
             this.lbNuevaMarca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtNuevaMarca
@@ -94,7 +94,7 @@
             this.lbModifMarca.Name = "lbModifMarca";
             this.lbModifMarca.Size = new System.Drawing.Size(240, 25);
             this.lbModifMarca.TabIndex = 0;
-            this.lbModifMarca.Text = "Nombre de la marca a modificar:";
+            this.lbModifMarca.Text = "Nombre de la Marca a modificar:";
             this.lbModifMarca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cboModifMarca
@@ -122,7 +122,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "frmAltaMarca";
-            this.Text = "frmAltaMarca.Text";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Alta Marca";
             this.Load += new System.EventHandler(this.frmAltaMarca_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

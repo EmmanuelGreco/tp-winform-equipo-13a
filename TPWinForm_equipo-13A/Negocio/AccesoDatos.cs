@@ -22,6 +22,8 @@ namespace Negocio
             //PEDRO: Esta es mi cadena de conexión. Comenten esta y pongan la suya abajo, asi no me la borran :)
             conexion = new SqlConnection("Server=localhost;Database=CATALOGO_P3_DB; integrated security=false; user ID=sa; password=BaseDeDatos#2");
             comando = new SqlCommand();
+
+            //EMMA: Me funcionó la conexión de Pedro, sin cambiar nada.
         }
 
         public void setearConsulta(string consulta)

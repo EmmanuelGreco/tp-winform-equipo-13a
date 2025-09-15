@@ -58,6 +58,10 @@ namespace WinFormsApp
                 lbTitulo.Text = "Ningún artículo para mostrar!";
                 lbDescripcion.Text = "Debe contar con al menos una marca y una categoría para poder añadir un artículo.";
 
+                pbxImagenArticulo.Load("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png");
+                btnImagenSiguiente.Visible = false;
+                btnImagenAnterior.Visible = false;
+
                 formatearColumnas();
             }
 
@@ -190,8 +194,8 @@ namespace WinFormsApp
 
         private void articuloModificarTSMenuItem_Click(object sender, EventArgs e)
         {
-            Articulo seleccionado;
-            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            //Articulo seleccionado;
+            //seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
 
             frmAltaArticulo modificar = new frmAltaArticulo(seleccionado);
             modificar.ShowDialog();

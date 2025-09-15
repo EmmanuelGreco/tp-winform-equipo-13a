@@ -52,9 +52,9 @@
             this.lbModifCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbModifCategoria.Location = new System.Drawing.Point(15, 15);
             this.lbModifCategoria.Name = "lbModifCategoria";
-            this.lbModifCategoria.Size = new System.Drawing.Size(260, 25);
+            this.lbModifCategoria.Size = new System.Drawing.Size(262, 25);
             this.lbModifCategoria.TabIndex = 0;
-            this.lbModifCategoria.Text = "Nombre de la categoría a modificar:";
+            this.lbModifCategoria.Text = "Nombre de la Categoría a modificar:";
             this.lbModifCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnCancelarCategoria
@@ -99,9 +99,9 @@
             this.lbNuevaCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lbNuevaCategoria.Location = new System.Drawing.Point(15, 55);
             this.lbNuevaCategoria.Name = "lbNuevaCategoria";
-            this.lbNuevaCategoria.Size = new System.Drawing.Size(260, 25);
+            this.lbNuevaCategoria.Size = new System.Drawing.Size(262, 25);
             this.lbNuevaCategoria.TabIndex = 2;
-            this.lbNuevaCategoria.Text = "Nombre de la nueva categoría:";
+            this.lbNuevaCategoria.Text = "Nombre de la nueva Categoría:";
             this.lbNuevaCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // frmAltaCategoria
@@ -118,7 +118,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "frmAltaCategoria";
-            this.Text = "frmAltaCategoria.Text";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Alta Categoría";
             this.Load += new System.EventHandler(this.frmAltaCategoria_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

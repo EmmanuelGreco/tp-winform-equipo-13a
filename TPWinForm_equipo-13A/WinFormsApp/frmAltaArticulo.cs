@@ -69,6 +69,13 @@ namespace WinFormsApp
                 }
 
                 articulo.Codigo = txtCodigo.Text;
+
+                if (string.IsNullOrWhiteSpace(txtNombre.Text))
+                {
+                    MessageBox.Show("El campo 'Nombre' no puede estar vacío!", "Aviso!",
+                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 articulo.Nombre = txtNombre.Text;
                 articulo.Descripcion = txtDescripcion.Text;
 
@@ -77,7 +84,7 @@ namespace WinFormsApp
                 {
                     if (img != null && img.ImagenUrl != null && img.ImagenUrl.Trim().Length > 0)
                     {
-                        // Preservamos Id si viene (Id=0 significa nueva imagen)
+                        // Conservamos Id si viene (Id=0 significa nueva imagen)
                         articulo.ListaImagen.Add(new Imagen { Id = img.Id, ImagenUrl = img.ImagenUrl.Trim() });
                     }
                 }
