@@ -141,3 +141,19 @@ INSERT INTO MARCAS (Descripcion) SELECT ('Cono')
 WHERE NOT EXISTS (
     SELECT * FROM MARCAS WHERE Descripcion = 'Cono'
 ) SELECT SCOPE_IDENTITY() AS NuevoID;
+
+
+--QUERY UTILIZADA EN ARTICULO FILTRO AVANZADO
+SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca,
+C.Descripcion Categoria, A.IdMarca, A.IdCategoria, Precio
+FROM ARTICULOS A, MARCAS M, CATEGORIAS C 
+WHERE M.Id = A.IdMarca
+AND C.Id = A.IdCategoria
+--AND Nombre LIKE 'Bravia 55'
+
+SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca,
+C.Descripcion Categoria, A.IdMarca, A.IdCategoria, Precio
+FROM ARTICULOS A, MARCAS M, CATEGORIAS C 
+WHERE M.Id = A.IdMarca
+AND C.Id = A.IdCategoria
+--AND PRECIO > 1.0

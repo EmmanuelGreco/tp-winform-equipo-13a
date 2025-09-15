@@ -18,6 +18,8 @@ namespace WinFormsApp
         private List<Articulo> listaArticulo;
         Articulo seleccionado;
         private int indiceImagen = 0;
+        private bool ordenAscendente = true;
+        private string columnaOrdenActual = "";
 
         public frmArticulos()
         {
@@ -27,6 +29,10 @@ namespace WinFormsApp
         private void Form1_Load(object sender, EventArgs e)
         {
             cargar();
+            // Si bien el metodo formatearColumnas(); se llama varias veces
+            // y parece repetitivo, es porque con 1 solo llamado, por algun motivo
+            // no respesta la medida seleccionada y existen variaciones
+            formatearColumnas();
             cboCampoFiltro.Items.Add("Nombre");
             cboCampoFiltro.Items.Add("Precio");
         }
@@ -36,6 +42,7 @@ namespace WinFormsApp
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             listaArticulo = articuloNegocio.listar();
             dgvArticulos.DataSource = listaArticulo;
+            formatearColumnas();
 
             try
             {
@@ -100,15 +107,85 @@ namespace WinFormsApp
             if (cantMarcas != 0 && cantCategorias != 0)
                 articuloAgregarTSMenuItem.Enabled = true;
 
+            formatearColumnas();
         }
 
         private void formatearColumnas()
         {
             dgvArticulos.Columns["Id"].Visible = false;
             //dgvArticulos.Columns["Codigo"].Visible = false;
+            dgvArticulos.Columns["Codigo"].Width = 120;
             dgvArticulos.Columns["Descripcion"].Visible = false;
             dgvArticulos.Columns["Marca"].Visible = false;
+            dgvArticulos.Columns["Categoria"].Width = 120;
             dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "C";   //En formato dinero!
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvArticulos.Columns["Precio"].Width = 120;
+        }
+
+        private void dgvArticulos_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            BindingSource BindingSource = new BindingSource();
+            BindingSource.DataSource = listaArticulo;
+            dgvArticulos.DataSource = BindingSource;
+
+            string columna = dgvArticulos.Columns[e.ColumnIndex].DataPropertyName;
+            
+            if (columna != columnaOrdenActual)
+            {
+                ordenAscendente = true;
+                columnaOrdenActual = columna;
+            }
+
+            if (columna == "Codigo")
+            {
+                listaArticulo = ordenAscendente
+                    ? listaArticulo.OrderBy(p => p.Codigo).ToList()
+                    : listaArticulo.OrderByDescending(p => p.Codigo).ToList();
+            }
+            else if (columna == "Nombre")
+            {
+                listaArticulo = ordenAscendente
+                    ? listaArticulo.OrderBy(p => p.Nombre).ToList()
+                    : listaArticulo.OrderByDescending(p => p.Nombre).ToList();
+            }  
+            // Se rompe
+            /*else if (columna == "Categoria")
+            {
+                //listaArticulo = listaArticulo.OrderBy(p => p.Categoria).ToList();
+
+            }*/
+            else if (columna == "Precio")
+            {
+                listaArticulo = ordenAscendente
+                    ? listaArticulo.OrderBy(p => p.Precio).ToList()
+                    : listaArticulo.OrderByDescending(p => p.Precio).ToList();
+            }
+
+            BindingSource.DataSource = listaArticulo;
+            dgvArticulos.AllowUserToAddRows = false;
+
+            ordenAscendente = !ordenAscendente;
+
+            for (int i = 0; i < dgvArticulos.Columns.Count; i++)
+            {
+                // No cambiar la dirección de la flecha para Categoria, ya que el OrderBy rompe
+                if (dgvArticulos.Columns[i].DataPropertyName == columna &&
+                    dgvArticulos.Columns[i].DataPropertyName != "Categoria")
+                {
+                    // Establecer la flecha en orden ascendente o descendente
+                    dgvArticulos.Columns[i].HeaderCell.SortGlyphDirection = ordenAscendente
+                        ? SortOrder.Ascending
+                        : SortOrder.Descending;
+                }
+                else
+                {
+                    // Limpiar la flecha en las otras columnas
+                    dgvArticulos.Columns[i].HeaderCell.SortGlyphDirection = SortOrder.None;
+                }
+            }
+
+            formatearColumnas();
         }
 
         private void cargarDetalles(Articulo seleccionado)
@@ -291,6 +368,7 @@ namespace WinFormsApp
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             busquedaFiltro();
+            formatearColumnas();
         }
 
         private void busquedaFiltro()

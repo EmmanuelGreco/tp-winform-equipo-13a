@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAltaMarca));
             this.lbNuevaMarca = new System.Windows.Forms.Label();
             this.txtNuevaMarca = new System.Windows.Forms.TextBox();
             this.btnAceptarMarca = new System.Windows.Forms.Button();
@@ -112,6 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(606, 141);
             this.Controls.Add(this.cboModifMarca);
             this.Controls.Add(this.lbModifMarca);
@@ -120,6 +122,7 @@
             this.Controls.Add(this.txtNuevaMarca);
             this.Controls.Add(this.lbNuevaMarca);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmAltaMarca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -126,5 +126,8 @@
   <ItemGroup>
     <None Include="Resources\flechaIzq.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icono TP2.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
