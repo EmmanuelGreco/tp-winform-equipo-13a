@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
@@ -48,6 +50,7 @@ namespace Negocio
                     //Agregar lista de imagenes
                     List<Imagen> listaImagen = new List<Imagen>();
                     aux.ListaImagen = imagenNegocio.listarPorIdArticulo(aux.Id);
+
                     listaArticulos.Add(aux);
                 }
                 return listaArticulos;
@@ -195,6 +198,104 @@ namespace Negocio
                 datos.ejecutarLectura();
 
                 return datos.Lector.Read();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public List<Articulo> filtrar(string campo, string criterio, string filtro)
+        {
+            List<Articulo> listaArticulos = new List<Articulo>();
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                string consulta = "SELECT A.Id, Codigo, Nombre, A.Descripcion, M.Descripcion Marca, " +
+                                     "C.Descripcion Categoria, A.IdMarca, A.IdCategoria, " +
+                                     "Precio FROM ARTICULOS A, MARCAS M, CATEGORIAS C " +
+                                     "WHERE M.Id = A.IdMarca AND C.Id = A.IdCategoria AND ";
+                if (campo == "Nombre")
+                {
+                    switch (criterio)
+                    {
+                        case "Comienza con":
+                            consulta += "Nombre LIKE '" + filtro + "%'";
+                            break;
+                        case "Termina con":
+                            consulta += "Nombre LIKE '%" + filtro + "'";
+                            break;
+                        default: // Contiene
+                            consulta += "Nombre LIKE '%" + filtro + "%'";
+                            break;
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        // Reemplazo las ',' por '.' para tomar los decimales y minimizar errores del usuario.
+                        filtro = filtro.Trim().Replace(',', '.'); 
+                        decimal precio;
+                        decimal.TryParse(filtro, NumberStyles.Number, CultureInfo.InvariantCulture, out precio);
+                        switch (criterio)
+                        {
+                            case "Mayor a":
+                                consulta += "Precio > " + filtro;
+                                break;
+                            case "Menor a":
+                                consulta += "Precio < " + filtro;
+                                break;
+                            default: // Igual a
+                                consulta += "Precio = " + filtro;
+                                break;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        throw ex;
+                    }
+                }
+
+                datos.setearConsulta(consulta);
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+
+                    aux.Marca = new Marca();
+                    aux.Marca.Id = (int)datos.Lector["IdMarca"];
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+
+                    // OPCIONAL: (redondea los decimales a 2 nums despues de la coma)
+                    aux.Precio = Math.Round(aux.Precio, 2, MidpointRounding.AwayFromZero);
+
+                    //Agregar lista de imagenes
+                    List<Imagen> listaImagen = new List<Imagen>();
+                    aux.ListaImagen = imagenNegocio.listarPorIdArticulo(aux.Id);
+
+                    listaArticulos.Add(aux);
+                }
+
+                return listaArticulos;
             }
             catch (Exception ex)
             {

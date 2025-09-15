@@ -155,10 +155,12 @@ namespace WinFormsApp
                 cboMarca.DataSource = marcaNegocio.listar();
                 cboMarca.ValueMember = "Id";
                 cboMarca.DisplayMember = "Descripcion";
+                cboMarca.SelectedIndex = -1;
 
                 cboCategoria.DataSource = categoriaNegocio.listar();
                 cboCategoria.ValueMember = "Id";
                 cboCategoria.DisplayMember = "Descripcion";
+                cboMarca.SelectedIndex = -1;
 
                 if (articulo != null)
                 {

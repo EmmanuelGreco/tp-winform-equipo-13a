@@ -225,7 +225,7 @@
             this.btnAgregarImagen.Name = "btnAgregarImagen";
             this.btnAgregarImagen.Size = new System.Drawing.Size(225, 25);
             this.btnAgregarImagen.TabIndex = 16;
-            this.btnAgregarImagen.Text = "Confirmar/Agregar Imagen";
+            this.btnAgregarImagen.Text = "Cambiar/Agregar Imagen";
             this.btnAgregarImagen.UseVisualStyleBackColor = false;
             this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
             // 
@@ -275,7 +275,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(27, 390);
+            this.label2.Location = new System.Drawing.Point(27, 391);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 25);
             this.label2.TabIndex = 21;

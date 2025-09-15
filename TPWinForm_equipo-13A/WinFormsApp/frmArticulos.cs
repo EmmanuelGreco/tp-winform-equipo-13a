@@ -26,6 +26,8 @@ namespace WinFormsApp
         private void Form1_Load(object sender, EventArgs e)
         {
             cargar();
+            cboCampoFiltro.Items.Add("Nombre");
+            cboCampoFiltro.Items.Add("Precio");
         }
 
         private void cargar()
@@ -226,9 +228,19 @@ namespace WinFormsApp
 
         private void btnFiltro_Click(object sender, EventArgs e)
         {
-            // Si bien el método txtFiltro_TextChanged hace lo mismo, este botón
-            // queda para el Filtro Avanzado contra DB
-            busquedaFiltro();
+            ArticuloNegocio negocio = new ArticuloNegocio();
+
+            try
+            {
+                string campo = cboCampoFiltro.SelectedItem.ToString();
+                string criterio = cboCriterioFiltro.SelectedItem.ToString();
+                string filtro = txtFiltroAvanzado.Text;
+                dgvArticulos.DataSource = negocio.filtrar(campo, criterio, filtro);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
@@ -297,6 +309,25 @@ namespace WinFormsApp
             frmAltaCategoria baja = new frmAltaCategoria("baja");
             baja.ShowDialog();
             cargar();
+        }
+
+        private void cboCampoFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = cboCampoFiltro.SelectedItem.ToString();
+            if(opcion == "Nombre")
+            {
+                cboCriterioFiltro.Items.Clear();
+                cboCriterioFiltro.Items.Add("Comienza con");
+                cboCriterioFiltro.Items.Add("Termina con");
+                cboCriterioFiltro.Items.Add("Contiene");
+            }
+            else
+            {
+                cboCriterioFiltro.Items.Clear();
+                cboCriterioFiltro.Items.Add("Mayor a");
+                cboCriterioFiltro.Items.Add("Menor a");
+                cboCriterioFiltro.Items.Add("Igual a");
+            }
         }
     }
 }
